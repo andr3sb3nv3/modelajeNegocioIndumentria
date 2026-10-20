@@ -1,0 +1,22 @@
+import { SHEETS, sheetUrl } from "./config";
+
+export type Quien = "Equipo demo" | "Claude" | "Equipo demo y Claude";
+export type Grupo = "dudosos" | "numeros" | "drive" | "subir" | "ejemplo";
+export type Lugar = { t: string; href?: string };
+export type ItemRevisar = { id:string; grupo:Grupo; t:string; que:string; donde:Lugar[]; hacer:string; quien:Quien; estado:"pendiente"|"resuelto"; visto:string };
+export const GRUPOS:{k:Grupo;t:string;d:string}[]=[
+  {k:"numeros",t:"Números del mes",d:"Validaciones de los importes ficticios que usa esta demostración."},
+  {k:"dudosos",t:"Datos para revisar",d:"Casos de ejemplo para explorar alertas, correcciones y control de carga."},
+  {k:"subir",t:"Archivos de prueba",d:"Ejemplos de documentos que pueden acompañar los registros ficticios."},
+  {k:"drive",t:"Organización del Drive demo",d:"Las planillas de este entorno contienen exclusivamente información inventada."},
+  {k:"ejemplo",t:"Supuestos de ejemplo",d:"Parámetros ficticios de los simuladores. No describen resultados ni decisiones del negocio real."},
+];
+export const ITEMS:ItemRevisar[]=[
+  {id:"comprobante-demo",grupo:"dudosos",t:"Un gasto de prueba sin comprobante",que:"El saldo ficticio de Taller Demo Sur está marcado para revisar y permite probar el control de comprobantes.",donde:[{t:"Gastos demo",href:sheetUrl(SHEETS.gastos)},{t:"Control de carga",href:"/informes/control"}],hacer:"Adjuntar un comprobante inventado y quitar la marca de revisión en este entorno.",quien:"Equipo demo",estado:"pendiente",visto:"Caso preparado con datos ficticios del 20/10/2026."},
+  {id:"stock-conteo",grupo:"dudosos",t:"Conteo físico de demostración",que:"Aurora, Bruma y los demás modelos son inventados. El conteo incluye cuatro talles y cuatro colores para explorar filtros y movimientos.",donde:[{t:"Conteo de vestidos demo",href:sheetUrl(SHEETS.conteo)},{t:"Stock",href:"/stock"}],hacer:"Consultar el conteo ficticio y comparar las vistas de historial y stock disponibles.",quien:"Equipo demo",estado:"resuelto",visto:"La estructura del conteo coincide con el lector de la aplicación."},
+  {id:"precio-lista-demo",grupo:"dudosos",t:"Explorar descuentos sin cambiar datos reales",que:"El historial ficticio incluye ventas con tarjeta, contado y promociones. La vista de precio lleno calcula las diferencias con los mismos criterios de la aplicación.",donde:[{t:"Venta a precio lleno",href:"/ventas#precio-lleno"}],hacer:"Comparar los modelos y cambiar el período para ver cómo varía el resultado.",quien:"Equipo demo y Claude",estado:"pendiente",visto:"Los precios y cantidades de este caso se generaron para la demo."},
+  {id:"documento-demo",grupo:"subir",t:"Subir un archivo de ejemplo",que:"Un comprobante sin datos personales sirve para mostrar cómo se vinculan los archivos con un registro operativo.",donde:[{t:"Carga de datos demo",href:sheetUrl(SHEETS.maestro)}],hacer:"Usar exclusivamente un documento ficticio en la carpeta de demostración.",quien:"Equipo demo",estado:"pendiente",visto:"Ejercicio de demostración; no hay documentos reales vinculados."},
+  {id:"drive-demo",grupo:"drive",t:"Un único origen para las pruebas",que:"Las ventas, el inventario, los gastos y la planificación usan los libros ficticios de esta demo. Los registros de prueba deben permanecer en este entorno.",donde:[{t:"Ventas demo",href:sheetUrl(SHEETS.ventas)},{t:"Producción y stock demo",href:sheetUrl(SHEETS.stock)}],hacer:"Comprobar que una carga de prueba aparezca en la planilla y en la aplicación cuando la conexión de escritura esté configurada.",quien:"Equipo demo y Claude",estado:"pendiente",visto:"Entorno separado del negocio real."},
+  {id:"mayorista-demo",grupo:"ejemplo",t:"Supuestos ficticios del canal mayorista",que:"Los precios, costos, presupuestos y plazos de los simuladores son ejemplos. Mover sus controles permite analizar relaciones entre variables.",donde:[{t:"Simulador mayorista",href:"/pruebas-4"}],hacer:"Cambiar un supuesto y comparar escenarios; no interpretar los resultados como una recomendación comercial.",quien:"Claude",estado:"pendiente",visto:"Escenarios calculados con el catálogo ficticio de ocho modelos."},
+  {id:"anulacion-demo",grupo:"dudosos",t:"Venta ficticia anulada",que:"El historial conserva una venta de Cedro anulada para mostrar el rastro de una corrección.",donde:[{t:"Historial",href:"/stock/historial"}],hacer:"Abrir el registro y comparar su estado con una venta vigente.",quien:"Equipo demo",estado:"resuelto",visto:"El movimiento de anulación referencia el ID de la venta de prueba."},
+];

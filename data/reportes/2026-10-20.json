@@ -1,0 +1,72 @@
+{
+  "fecha": "2026-10-20",
+  "generado": "2026-10-20T07:15:00-03:00",
+  "titular": "Una jornada de ejemplo para explorar ventas, inventario y planificación.",
+  "urgente": [
+    {
+      "titulo": "Revisar el comprobante demo",
+      "resumen": "Hay un saldo ficticio marcado para revisar antes de cerrar la prueba.",
+      "detalle": "Hay un saldo ficticio marcado para revisar antes de cerrar la prueba.\n\nEjercicio de demostración: nombres, cantidades e importes inventados.",
+      "fuentes": [
+        {
+          "titulo": "Planillas ficticias de la demo"
+        }
+      ]
+    }
+  ],
+  "importante": [
+    {
+      "titulo": "Preparar la cápsula Luz de tarde",
+      "resumen": "La planificación ficticia permite ver hitos, responsables y estados.",
+      "detalle": "La planificación ficticia permite ver hitos, responsables y estados.\n\nEjercicio de demostración: nombres, cantidades e importes inventados.",
+      "fuentes": [
+        {
+          "titulo": "Planillas ficticias de la demo"
+        }
+      ]
+    }
+  ],
+  "reunion": null,
+  "asesores": [
+    {
+      "titulo": "La vista de ventas está preparada",
+      "resumen": "Todavía no se cargaron ventas ficticias. Se incorporarán cuando se solicite expresamente.",
+      "detalle": "Todavía no se cargaron ventas ficticias. Se incorporarán cuando se solicite expresamente.\n\nEjercicio de demostración: no se muestran operaciones del negocio real.",
+      "fuentes": [
+        {
+          "titulo": "Planillas ficticias de la demo"
+        }
+      ],
+      "asesor": "Ventas demo",
+      "emoji": "📊",
+      "recomendaciones": [
+        {
+          "titulo": "Recorrer las vistas vacías de ventas",
+          "aclaracion": "No hay registros operativos precargados ni formularios de carga habilitados."
+        }
+      ]
+    },
+    {
+      "titulo": "Controlar la colección",
+      "resumen": "Aurora y Bruma son modelos de ejemplo para probar las vistas de producto.",
+      "detalle": "Aurora y Bruma son modelos de ejemplo para probar las vistas de producto.\n\nEjercicio de demostración: nombres, cantidades e importes inventados.",
+      "fuentes": [
+        {
+          "titulo": "Planillas ficticias de la demo"
+        }
+      ],
+      "asesor": "Producto demo",
+      "emoji": "👗",
+      "recomendaciones": [
+        {
+          "titulo": "Revisar el stock ficticio",
+          "aclaracion": "Consultar el inventario ficticio y el historial disponible."
+        }
+      ]
+    }
+  ],
+  "leidos": 17,
+  "avisos": [
+    "Todos los datos y recomendaciones de este reporte son ejemplos ficticios."
+  ]
+}

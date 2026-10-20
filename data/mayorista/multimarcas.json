@@ -1,0 +1,573 @@
+{
+  "supuestos": [
+    {
+      "k": "mult",
+      "t": "Mult · supuesto ficticio",
+      "v": 2.1,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "umbral",
+      "t": "Umbral · supuesto ficticio",
+      "v": 0.48,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "fijoPct",
+      "t": "Fijopct · supuesto ficticio",
+      "v": 0.27,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "log",
+      "t": "Log · supuesto ficticio",
+      "v": 1900,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "tasa",
+      "t": "Tasa · supuesto ficticio",
+      "v": 0.021,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "plazo",
+      "t": "Plazo · supuesto ficticio",
+      "v": 45,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "devol",
+      "t": "Devol · supuesto ficticio",
+      "v": 0.015,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "consig",
+      "t": "Consig · supuesto ficticio",
+      "v": 0.36,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "plazoC",
+      "t": "Plazoc · supuesto ficticio",
+      "v": 60,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "deter",
+      "t": "Deter · supuesto ficticio",
+      "v": 0.11,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "agente",
+      "t": "Agente · supuesto ficticio",
+      "v": 0.09,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "fotos",
+      "t": "Fotos · supuesto ficticio",
+      "v": 285000,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "visitas",
+      "t": "Visitas · supuesto ficticio",
+      "v": 76000,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "feria",
+      "t": "Feria · supuesto ficticio",
+      "v": 960000,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "meses",
+      "t": "Meses · supuesto ficticio",
+      "v": 5,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "comOn",
+      "t": "Comon · supuesto ficticio",
+      "v": 0.06,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "envOn",
+      "t": "Envon · supuesto ficticio",
+      "v": 6400,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "cac",
+      "t": "Cac · supuesto ficticio",
+      "v": 35000,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "pautaMay",
+      "t": "Pautamay · supuesto ficticio",
+      "v": 160000,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "cap",
+      "t": "Cap · supuesto ficticio",
+      "v": 72,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    }
+  ],
+  "generado": "2026-10-20T15:00:00Z",
+  "planilla": "Canal mayorista multimarcas · DEMO.xlsx",
+  "params": {
+    "mult": 2.1,
+    "umbral": 0.48,
+    "fijoPct": 0.27,
+    "log": 1900,
+    "tasa": 0.021,
+    "plazo": 45,
+    "devol": 0.015,
+    "consig": 0.36,
+    "plazoC": 60,
+    "deter": 0.11,
+    "agente": 0.09,
+    "fotos": 285000,
+    "visitas": 76000,
+    "feria": 960000,
+    "meses": 5,
+    "comOn": 0.06,
+    "envOn": 6400,
+    "cac": 35000,
+    "pautaMay": 160000,
+    "cap": 72
+  },
+  "modelos": [
+    {
+      "temp": "T27",
+      "modelo": "Aurora",
+      "prod": 48,
+      "pvp": 187000,
+      "fab": 44448,
+      "dejaMin": 124932.0,
+      "may": 89047.61904761904,
+      "log": 1900,
+      "fin": 2805.0,
+      "fal": 1335.7142857142856,
+      "costo": 50488.71428571428,
+      "deja": 38558.904761904756,
+      "margen": 0.4330144385026738,
+      "fijo": 24042.85714285714,
+      "dejaFijo": 14516.047619047615,
+      "vsMin": 0.30863913778619373,
+      "va": "No"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Bruma",
+      "prod": 52,
+      "pvp": 213000,
+      "fab": 46517,
+      "dejaMin": 147303.0,
+      "may": 101428.57142857142,
+      "log": 1900,
+      "fin": 3195.0,
+      "fal": 1521.4285714285713,
+      "costo": 53133.42857142857,
+      "deja": 48295.14285714285,
+      "margen": 0.4761492957746478,
+      "fijo": 27385.714285714286,
+      "dejaFijo": 20909.42857142856,
+      "vsMin": 0.3278625883868139,
+      "va": "No"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Duna",
+      "prod": 56,
+      "pvp": 169000,
+      "fab": 48586,
+      "dejaMin": 103874.0,
+      "may": 80476.19047619047,
+      "log": 1900,
+      "fin": 2535.0,
+      "fal": 1207.142857142857,
+      "costo": 54228.142857142855,
+      "deja": 26248.04761904762,
+      "margen": 0.32615917159763314,
+      "fijo": 21728.571428571428,
+      "dejaFijo": 4519.476190476191,
+      "vsMin": 0.2526912183900458,
+      "va": "No"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Luma",
+      "prod": 60,
+      "pvp": 246000,
+      "fab": 50656,
+      "dejaMin": 174184.0,
+      "may": 117142.85714285714,
+      "log": 1900,
+      "fin": 3690.0,
+      "fal": 1757.142857142857,
+      "costo": 58003.142857142855,
+      "deja": 59139.71428571429,
+      "margen": 0.5048512195121951,
+      "fijo": 31628.57142857143,
+      "dejaFijo": 27511.14285714286,
+      "vsMin": 0.3395243781616813,
+      "va": "Sí"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Cedro",
+      "prod": 64,
+      "pvp": 158000,
+      "fab": 52725,
+      "dejaMin": 89395.0,
+      "may": 75238.09523809524,
+      "log": 1900,
+      "fin": 2370.0,
+      "fal": 1128.5714285714284,
+      "costo": 58123.57142857143,
+      "deja": 17114.52380952381,
+      "margen": 0.22747151898734178,
+      "fijo": 20314.285714285714,
+      "dejaFijo": -3199.7619047619046,
+      "vsMin": 0.19144833390596577,
+      "va": "No"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Oliva",
+      "prod": 68,
+      "pvp": 224000,
+      "fab": 54794,
+      "dejaMin": 149366.0,
+      "may": 106666.66666666666,
+      "log": 1900,
+      "fin": 3360.0,
+      "fal": 1599.9999999999998,
+      "costo": 61654.0,
+      "deja": 45012.66666666666,
+      "margen": 0.42199374999999995,
+      "fijo": 28800.0,
+      "dejaFijo": 16212.666666666657,
+      "vsMin": 0.3013581850398796,
+      "va": "No"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Prisma",
+      "prod": 72,
+      "pvp": 198000,
+      "fab": 56863,
+      "dejaMin": 122857.0,
+      "may": 94285.71428571428,
+      "log": 1900,
+      "fin": 2970.0,
+      "fal": 1414.285714285714,
+      "costo": 63147.28571428572,
+      "deja": 31138.428571428558,
+      "margen": 0.3302560606060605,
+      "fijo": 25457.142857142855,
+      "dejaFijo": 5681.285714285703,
+      "vsMin": 0.25345262029374444,
+      "va": "No"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Senda",
+      "prod": 76,
+      "pvp": 271000,
+      "fab": 58932,
+      "dejaMin": 189408.0,
+      "may": 129047.61904761904,
+      "log": 1900,
+      "fin": 4065.0,
+      "fal": 1935.7142857142856,
+      "costo": 66832.71428571429,
+      "deja": 62214.90476190475,
+      "margen": 0.48210811808118076,
+      "fijo": 34842.857142857145,
+      "dejaFijo": 27372.047619047604,
+      "vsMin": 0.3284703115069308,
+      "va": "Sí"
+    }
+  ],
+  "prom": {
+    "pvp": 259970.58823529413,
+    "fab": 55280.82352941176,
+    "dejaMin": 182691.5294117647,
+    "may": 123795.51820728292,
+    "log": 1900.0,
+    "fin": 3899.5588235294117,
+    "fal": 1856.9327731092435,
+    "costo": 62937.31512605043,
+    "deja": 60858.20308123249,
+    "margen": 0.49214183930074595,
+    "fijo": 33424.789915966394,
+    "dejaFijo": 27433.413165266098,
+    "vsMin": 0.3333471056193207,
+    "va": "2 de 8 modelos"
+  },
+  "escenarios": [
+    {
+      "nombre": "Piloto demo",
+      "modo": "Consignación",
+      "tiendas": 2,
+      "xt": 14,
+      "st": 0.62,
+      "ag": 0,
+      "ent": 28,
+      "vend": 17,
+      "dev": 11,
+      "pu": 166381.17647058825,
+      "fact": 2828480.0000000005,
+      "cfab": 939774.0,
+      "clog": 74100,
+      "cfin": 118796.16000000002,
+      "cfal": 66889.79647058823,
+      "cag": 0.0,
+      "contrib": 1628920.0435294122,
+      "fmues": 110561.64705882352,
+      "ffot": 285000,
+      "fvis": 380000,
+      "fferia": 0,
+      "fijos": 775561.6470588235,
+      "res": 853358.3964705887,
+      "resMes": 170671.67929411776,
+      "cons": 89668.79647058854,
+      "pe": 9,
+      "peT": 2,
+      "prodMes": 5.6,
+      "capPct": 0.07777777777777778,
+      "capital": 1658424.705882353
+    },
+    {
+      "nombre": "Base demo",
+      "modo": "Compra en firme",
+      "tiendas": 6,
+      "xt": 18,
+      "st": 1,
+      "ag": 0,
+      "ent": 108,
+      "vend": 108,
+      "dev": 0,
+      "pu": 123795.51820728292,
+      "fact": 13369915.966386555,
+      "cfab": 5970328.94117647,
+      "clog": 205200,
+      "cfin": 421152.3529411765,
+      "cfal": 200548.7394957983,
+      "cag": 0.0,
+      "contrib": 6572685.9327731095,
+      "fmues": 110561.64705882352,
+      "ffot": 285000,
+      "fvis": 380000,
+      "fferia": 0,
+      "fijos": 775561.6470588235,
+      "res": 5797124.285714286,
+      "resMes": 1159424.8571428573,
+      "cons": 2187246.9747899165,
+      "pe": 13,
+      "peT": 1,
+      "prodMes": 21.6,
+      "capPct": 0.30000000000000004,
+      "capital": 6080890.5882352935
+    },
+    {
+      "nombre": "Ampliado demo",
+      "modo": "Compra en firme",
+      "tiendas": 11,
+      "xt": 22,
+      "st": 1,
+      "ag": 1,
+      "ent": 242,
+      "vend": 242,
+      "dev": 0,
+      "pu": 123795.51820728292,
+      "fact": 29958515.406162467,
+      "cfab": 13377959.294117646,
+      "clog": 459800,
+      "cfin": 943693.2352941177,
+      "cfal": 449377.731092437,
+      "cag": 2696266.386554622,
+      "contrib": 12031418.759103645,
+      "fmues": 110561.64705882352,
+      "ffot": 285000,
+      "fvis": 380000,
+      "fferia": 960000,
+      "fijos": 1735561.6470588236,
+      "res": 10295857.11204482,
+      "resMes": 2059171.422408964,
+      "cons": 2207057.9523809543,
+      "pe": 35,
+      "peT": 2,
+      "prodMes": 48.4,
+      "capPct": 0.6722222222222222,
+      "capital": 13488520.94117647
+    }
+  ],
+  "vs": {
+    "consig": {
+      "Prendas cobradas": 62,
+      "Precio por prenda que cobra Marca Demo": 166381.17647058825,
+      "Facturación": 10315632.941176472,
+      "Costo de fábrica de lo cobrado": 3427411.058823529,
+      "Logística, plazo y fallas": 926530.425882353,
+      "Deja": 5961691.45647059,
+      "Deja por prenda entregada": 59616.9145647059,
+      "Prendas que vuelven a Marca Demo": 38,
+      "Cuándo entra la plata (días)": 60
+    },
+    "firme": {
+      "Prendas cobradas": 100,
+      "Precio por prenda que cobra Marca Demo": 123795.51820728292,
+      "Facturación": 12379551.820728293,
+      "Costo de fábrica de lo cobrado": 5528082.352941176,
+      "Logística, plazo y fallas": 765649.1596638656,
+      "Deja": 6085820.308123251,
+      "Deja por prenda entregada": 60858.20308123252,
+      "Prendas que vuelven a Marca Demo": 0,
+      "Cuándo entra la plata (días)": 45
+    },
+    "empate": 0.6310737148972239
+  },
+  "tres": {
+    "nombres": [
+      "Multimarcas demo",
+      "Mayorista online demo",
+      "Online minorista demo"
+    ],
+    "pu": [
+      123795.51820728292,
+      123795.51820728292,
+      259970.58823529413
+    ],
+    "fab": [
+      55280.82352941176,
+      55280.82352941176,
+      55280.82352941176
+    ],
+    "cob": [
+      5756.491596638656,
+      9284.66386554622,
+      15598.235294117647
+    ],
+    "env": [
+      1900,
+      0,
+      6400
+    ],
+    "cap": [
+      0,
+      0,
+      35000
+    ],
+    "deja": [
+      60858.20308123249,
+      59230.03081232494,
+      147691.5294117647
+    ],
+    "q": [
+      108,
+      108,
+      108
+    ],
+    "fijos": [
+      775561.6470588235,
+      1085000,
+      0
+    ],
+    "dias": [
+      45,
+      0,
+      0
+    ],
+    "cacEmpate": 137431.56162464985,
+    "contrib": [
+      6572685.932773109,
+      6396843.327731093,
+      15950685.176470587
+    ],
+    "res": [
+      5797124.285714285,
+      5311843.327731093,
+      15950685.176470587
+    ],
+    "resMes": [
+      1159424.857142857,
+      1062368.6655462186,
+      3190137.0352941174
+    ]
+  },
+  "pasos": [
+    {
+      "cuando": "Etapa 1",
+      "que": "Seleccionar el catálogo demo",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 2",
+      "que": "Preparar fotos de ejemplo",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 3",
+      "que": "Definir supuestos inventados",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 4",
+      "que": "Simular el pedido",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 5",
+      "que": "Comparar los escenarios",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 6",
+      "que": "Revisar el resultado",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 7",
+      "que": "Restablecer la prueba",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    }
+  ],
+  "fuentes": [
+    {
+      "que": "Catálogo, importes y escenarios completamente ficticios.",
+      "fuente": "Datos sintéticos de la demostración",
+      "url": ""
+    }
+  ]
+}

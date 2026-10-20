@@ -1,0 +1,106 @@
+{
+  "folderId": "1Hp3J2NY-koKbr2rHlDC_eDREJdlTwOj2",
+  "snapshotFileId": "1ch1m7ROWuKtbudviw0wCsf1M_1skFYug",
+  "asOf": "2026-10-20",
+  "books": {
+    "demo-ventas": "1vNNtnxkondeI-7hR8GUqDmYMmW7LZ_FtEAxM4PoXegY",
+    "demo-ventas-si": "1SY88pO6Qq3xckzjhvE8C7CMlee22tlq3q9nrolU3igE",
+    "demo-ventas-online": "1t3vGpkxwU9OQapXblw0jKqEL6hj_lEk44lDiFVaurCw",
+    "demo-gastos": "17rsuWWK5tHFxbiAxPhoSTeuzD9SgwMQROqp7ApZAtwQ",
+    "demo-stock": "1JL9m7NokTD9K7Uy4HJT85jiJOJMIWqcwxXE-ScsGXAE",
+    "demo-conteo": "1DnrUv1JCGQVkC5Oy_BS8gSGc_U6ov5Jrv5ENlEaGkKc",
+    "demo-clientas": "1S6gvMzMt_MRCb8pCyRkI-4HN2xR34hQCBOnvCGCTw9c",
+    "demo-canjes": "1MfZF53u09fv_cTCcoOE961fZG2f5vDw5hNIhBWt4f_M",
+    "demo-maestro": "1Y1VYfu4ztEXc0rxahFOdsumZ17kDOgakt-Oyqs0bM2o",
+    "demo-costos": "106lfVDGg3g7PzbuOHljUSRr_ekCGR7OfQoJ2Ecntbik",
+    "demo-plan-indice": "1wd85XjceQJhQKIw0bm1MA5ZiD8jz938lQ7lST61J17o",
+    "demo-plan-modelo": "17ezJePtieTDX9ys27wvMMMwikxNKLscIOKkqvAkQ1RI",
+    "demo-plan-ideas": "163Vuzliq0ZgOMPALjS1krzBs2AsKq15hw8k0HoYn-c4",
+    "demo-plan-calendario": "12TH0Z7KNpKWfo0yL7VTaipZ1bCl974CQZfaFvLDVyZQ",
+    "demo-plan-objetivos": "1JAs3kjxQd-vp7-wo_vU0iQpPVlPKfTDq6mNF28jDhA0",
+    "demo-plan-lanzamiento-27": "1h1AYEnPZAr8NuyQ9Rbx4XIku2xpWMKIaPrRUWC5IgVg",
+    "demo-plan-lanzamiento-26": "1HowlS6cN_hzl16ghLXqzSbiZT3kFszX17CgWlYlMFMs"
+  },
+  "folders": {
+    "lanzamientos": "1ektm9YWEObfAiyDBvzXIVtVKrIF_pxvG",
+    "temporadas": "1A_Cy1wxIOp7JeX9MIZf-bvHMdAqZsQwh",
+    "objetivos": "1u0UksKp8inRJxN5guN9fjJppXIja5NBS"
+  },
+  "tabs": {
+    "demo-ventas": {
+      "Todos": 1483038633,
+      "Vivo San Isidro": 1655492539,
+      "Vivo Online": 714437915
+    },
+    "demo-ventas-si": {
+      "VENTAS": 281026278
+    },
+    "demo-ventas-online": {
+      "VENTAS": 1790336657
+    },
+    "demo-gastos": {
+      "Gastos": 1835363903,
+      "Listas": 1539641222
+    },
+    "demo-conteo": {
+      "STOCK SAN ISIDRO": 1155295784
+    },
+    "demo-clientas": {
+      "Clientas": 882509029
+    },
+    "demo-canjes": {
+      "Canjes y préstamos": 1841464793
+    },
+    "demo-maestro": {
+      "Días": 1156182078,
+      "Alertas": 276491502,
+      "Bitácora IA": 742194794,
+      "Línea del tiempo": 1848372149,
+      "Instrucciones · Línea del tiempo": 1378265338
+    },
+    "demo-stock": {
+      "Stock": 2000200271,
+      "Producción": 1195810157,
+      "Pagos a producción": 1140125583,
+      "Compras de telas": 1444999809,
+      "Movimientos": 1503448784,
+      "Stock en vivo": 1957758700
+    },
+    "demo-plan-indice": {
+      "Lanzamientos": 279281675
+    },
+    "demo-plan-lanzamiento-27": {
+      "Hitos": 74622804,
+      "Producción": 446638583,
+      "Calendario de contenido": 292005349
+    },
+    "demo-plan-lanzamiento-26": {
+      "Hitos": 1906282383,
+      "Producción": 1426828649,
+      "Calendario de contenido": 1657634492
+    },
+    "demo-plan-modelo": {
+      "Hitos": 989404861
+    },
+    "demo-plan-ideas": {
+      "Ideas": 1891338356,
+      "Recursos": 2039042454
+    },
+    "demo-plan-calendario": {
+      "Año comercial": 1969374585,
+      "Ciclo de producción": 2088794184,
+      "Checklist Cyber": 366753327,
+      "Criterios": 1958492263
+    },
+    "demo-plan-objetivos": {
+      "Plan 2026": 708968733,
+      "Plan 2025": 461840107,
+      "Tareas de la dueña": 1678625233,
+      "Tareas de vendedoras": 1092507437,
+      "Mayoristas": 914331952
+    },
+    "demo-costos": {
+      "Costo unitario": 648533465
+    }
+  }
+}

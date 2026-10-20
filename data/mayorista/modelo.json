@@ -1,0 +1,808 @@
+{
+  "supuestos": [
+    {
+      "k": "fijoPct",
+      "t": "Fijopct · supuesto ficticio",
+      "v": 0.27,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "umbral",
+      "t": "Umbral · supuesto ficticio",
+      "v": 0.48,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "comOn",
+      "t": "Comon · supuesto ficticio",
+      "v": 0.06,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "envOn",
+      "t": "Envon · supuesto ficticio",
+      "v": 6400,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "camb",
+      "t": "Camb · supuesto ficticio",
+      "v": 0.12,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "devol",
+      "t": "Devol · supuesto ficticio",
+      "v": 0.015,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "cpc",
+      "t": "Cpc · supuesto ficticio",
+      "v": 280,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "conv",
+      "t": "Conv · supuesto ficticio",
+      "v": 0.008,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "cac",
+      "t": "Cac · supuesto ficticio",
+      "v": 35000,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "mesesStock",
+      "t": "Mesesstock · supuesto ficticio",
+      "v": 1.5,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "recompra",
+      "t": "Recompra · supuesto ficticio",
+      "v": 0.18,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "prueba",
+      "t": "Prueba · supuesto ficticio",
+      "v": 840000,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "descRev",
+      "t": "Descrev · supuesto ficticio",
+      "v": 0.32,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "pautaMay",
+      "t": "Pautamay · supuesto ficticio",
+      "v": 160000,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "fotos",
+      "t": "Fotos · supuesto ficticio",
+      "v": 285000,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "meses",
+      "t": "Meses · supuesto ficticio",
+      "v": 5,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "cap",
+      "t": "Cap · supuesto ficticio",
+      "v": 72,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "mult",
+      "t": "Mult · supuesto ficticio",
+      "v": 2.1,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "log",
+      "t": "Log · supuesto ficticio",
+      "v": 1900,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "tasa",
+      "t": "Tasa · supuesto ficticio",
+      "v": 0.021,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    },
+    {
+      "k": "plazo",
+      "t": "Plazo · supuesto ficticio",
+      "v": 45,
+      "estado": "Ejemplo",
+      "de": "Valor inventado para demostrar el simulador; no corresponde al negocio real."
+    }
+  ],
+  "generado": "2026-10-20T15:00:00Z",
+  "planilla": "Canal mayorista · DEMO.xlsx",
+  "params": {
+    "fijoPct": 0.27,
+    "umbral": 0.48,
+    "comOn": 0.06,
+    "envOn": 6400,
+    "camb": 0.12,
+    "devol": 0.015,
+    "cpc": 280,
+    "conv": 0.008,
+    "cac": 35000,
+    "mesesStock": 1.5,
+    "recompra": 0.18,
+    "prueba": 840000,
+    "descRev": 0.32,
+    "pautaMay": 160000,
+    "fotos": 285000,
+    "meses": 5,
+    "cap": 72,
+    "mult": 2.1,
+    "log": 1900,
+    "tasa": 0.021,
+    "plazo": 45
+  },
+  "modelos": [
+    {
+      "temp": "T27",
+      "modelo": "Aurora",
+      "prod": 48,
+      "pvp": 187000,
+      "fab": 44448,
+      "dejaMin": 124932.0,
+      "onCom": 11220.0,
+      "onEnv": 7936.0,
+      "onFal": 2805.0,
+      "onCac": 35000,
+      "rev": 127159.99999999999,
+      "revCob": 9536.999999999998,
+      "dejaRev": 73174.99999999999,
+      "margenRev": 0.5754561182761875,
+      "may": 89047.61904761904,
+      "dejaMay": 38558.904761904756,
+      "dejaOn": 85591.0,
+      "va": "Sí"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Bruma",
+      "prod": 52,
+      "pvp": 213000,
+      "fab": 46517,
+      "dejaMin": 147303.0,
+      "onCom": 12780.0,
+      "onEnv": 7936.0,
+      "onFal": 3195.0,
+      "onCac": 35000,
+      "rev": 144840.0,
+      "revCob": 10863.0,
+      "dejaRev": 87460.0,
+      "margenRev": 0.603838718586026,
+      "may": 101428.57142857142,
+      "dejaMay": 48295.14285714285,
+      "dejaOn": 107572.0,
+      "va": "Sí"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Duna",
+      "prod": 56,
+      "pvp": 169000,
+      "fab": 48586,
+      "dejaMin": 103874.0,
+      "onCom": 10140.0,
+      "onEnv": 7936.0,
+      "onFal": 2535.0,
+      "onCac": 35000,
+      "rev": 114919.99999999999,
+      "revCob": 8618.999999999998,
+      "dejaRev": 57714.999999999985,
+      "margenRev": 0.5022189349112426,
+      "may": 80476.19047619047,
+      "dejaMay": 26248.047619047615,
+      "dejaOn": 64803.0,
+      "va": "Sí"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Luma",
+      "prod": 60,
+      "pvp": 246000,
+      "fab": 50656,
+      "dejaMin": 174184.0,
+      "onCom": 14760.0,
+      "onEnv": 7936.0,
+      "onFal": 3690.0,
+      "onCac": 35000,
+      "rev": 167279.99999999997,
+      "revCob": 12545.999999999998,
+      "dejaRev": 104077.99999999997,
+      "margenRev": 0.6221783835485413,
+      "may": 117142.85714285714,
+      "dejaMay": 59139.71428571429,
+      "dejaOn": 133958.0,
+      "va": "Sí"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Cedro",
+      "prod": 64,
+      "pvp": 158000,
+      "fab": 52725,
+      "dejaMin": 89395.0,
+      "onCom": 9480.0,
+      "onEnv": 7936.0,
+      "onFal": 2370.0,
+      "onCac": 35000,
+      "rev": 107439.99999999999,
+      "revCob": 8057.999999999998,
+      "dejaRev": 46656.999999999985,
+      "margenRev": 0.43426098287416226,
+      "may": 75238.09523809524,
+      "dejaMay": 17114.52380952381,
+      "dejaOn": 50489.0,
+      "va": "No"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Oliva",
+      "prod": 68,
+      "pvp": 224000,
+      "fab": 54794,
+      "dejaMin": 149366.0,
+      "onCom": 13440.0,
+      "onEnv": 7936.0,
+      "onFal": 3360.0,
+      "onCac": 35000,
+      "rev": 152320.0,
+      "revCob": 11424.0,
+      "dejaRev": 86102.0,
+      "margenRev": 0.5652704831932773,
+      "may": 106666.66666666666,
+      "dejaMay": 45012.66666666666,
+      "dejaOn": 109470.0,
+      "va": "Sí"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Prisma",
+      "prod": 72,
+      "pvp": 198000,
+      "fab": 56863,
+      "dejaMin": 122857.0,
+      "onCom": 11880.0,
+      "onEnv": 7936.0,
+      "onFal": 2970.0,
+      "onCac": 35000,
+      "rev": 134640.0,
+      "revCob": 10098.0,
+      "dejaRev": 67679.0,
+      "margenRev": 0.5026663695781343,
+      "may": 94285.71428571428,
+      "dejaMay": 31138.42857142856,
+      "dejaOn": 83351.0,
+      "va": "Sí"
+    },
+    {
+      "temp": "T27",
+      "modelo": "Senda",
+      "prod": 76,
+      "pvp": 271000,
+      "fab": 58932,
+      "dejaMin": 189408.0,
+      "onCom": 16260.0,
+      "onEnv": 7936.0,
+      "onFal": 4065.0,
+      "onCac": 35000,
+      "rev": 184279.99999999997,
+      "revCob": 13820.999999999998,
+      "dejaRev": 111526.99999999997,
+      "margenRev": 0.6052040373344909,
+      "may": 129047.61904761904,
+      "dejaMay": 62214.904761904756,
+      "dejaOn": 148807.0,
+      "va": "Sí"
+    }
+  ],
+  "prom": {
+    "pvp": 218425.92592592593,
+    "fab": 52341.49074074074,
+    "dejaMin": 146578.87962962964,
+    "onCom": 13105.555555555555,
+    "onEnv": 7936.0,
+    "onFal": 3276.3888888888887,
+    "onCac": 35000.0,
+    "dejaOn": 106766.49074074074,
+    "rev": 148529.62962962964,
+    "revCob": 11139.72222222222,
+    "dejaRev": 85048.41666666664,
+    "margenRev": 0.5673665479533848,
+    "may": 104012.34567901233,
+    "dejaMay": 44934.28086419752,
+    "va": "7 de 8 modelos"
+  },
+  "directo": [
+    {
+      "nombre": "Piloto demo",
+      "vmes": 7,
+      "cacE": 35000,
+      "q": 35,
+      "pu": 218425.92592592593,
+      "deja": 106766.49074074076,
+      "fact": 7644907.407407408,
+      "pautaMes": 245000,
+      "contrib": 3736827.175925927,
+      "fijos": 285000,
+      "res": 3451827.175925927,
+      "resMes": 690365.4351851854,
+      "pe": 3,
+      "prodMes": 7,
+      "capPct": 0.09722222222222222,
+      "capital": 549585.6527777778
+    },
+    {
+      "nombre": "Escenario base demo",
+      "vmes": 18,
+      "cacE": 35000,
+      "q": 90,
+      "pu": 218425.92592592593,
+      "deja": 106766.49074074076,
+      "fact": 19658333.333333332,
+      "pautaMes": 630000,
+      "contrib": 9608984.166666668,
+      "fijos": 285000,
+      "res": 9323984.166666668,
+      "resMes": 1864796.8333333335,
+      "pe": 3,
+      "prodMes": 18,
+      "capPct": 0.25,
+      "capital": 1413220.25
+    },
+    {
+      "nombre": "Escenario ampliado demo",
+      "vmes": 32,
+      "cacE": 41000,
+      "q": 160,
+      "pu": 218425.92592592593,
+      "deja": 100766.49074074076,
+      "fact": 34948148.14814815,
+      "pautaMes": 1312000,
+      "contrib": 16122638.518518522,
+      "fijos": 285000,
+      "res": 15837638.518518522,
+      "resMes": 3167527.7037037043,
+      "pe": 3,
+      "prodMes": 32,
+      "capPct": 0.4444444444444444,
+      "capital": 2512391.5555555555
+    }
+  ],
+  "reven": [
+    {
+      "nombre": "Piloto demo",
+      "nrev": 4,
+      "xr": 7,
+      "q": 28,
+      "pu": 148529.62962962964,
+      "deja": 85048.41666666664,
+      "fact": 4158829.6296296297,
+      "contrib": 2381355.666666666,
+      "fijos": 1085000,
+      "res": 1296355.666666666,
+      "resMes": 259271.13333333321,
+      "pe": 13,
+      "prodMes": 5.6,
+      "capPct": 0.07777777777777778,
+      "capital": 293112.3481481481
+    },
+    {
+      "nombre": "Escenario base demo",
+      "nrev": 7,
+      "xr": 13,
+      "q": 91,
+      "pu": 148529.62962962964,
+      "deja": 85048.41666666664,
+      "fact": 13516196.296296297,
+      "contrib": 7739405.916666664,
+      "fijos": 1085000,
+      "res": 6654405.916666664,
+      "resMes": 1330881.1833333329,
+      "pe": 13,
+      "prodMes": 18.2,
+      "capPct": 0.25277777777777777,
+      "capital": 952615.1314814814
+    },
+    {
+      "nombre": "Escenario ampliado demo",
+      "nrev": 12,
+      "xr": 15,
+      "q": 180,
+      "pu": 148529.62962962964,
+      "deja": 85048.41666666664,
+      "fact": 26735333.333333336,
+      "contrib": 15308714.999999996,
+      "fijos": 1085000,
+      "res": 14223714.999999996,
+      "resMes": 2844742.999999999,
+      "pe": 13,
+      "prodMes": 36.0,
+      "capPct": 0.5,
+      "capital": 1884293.6666666665
+    }
+  ],
+  "comp": {
+    "nombres": [
+      "Directo a la clienta",
+      "Revendedoras online",
+      "Multimarcas"
+    ],
+    "pu": [
+      218425.92592592593,
+      148529.62962962964,
+      104012.34567901233
+    ],
+    "fab": [
+      52341.49074074074,
+      52341.49074074074,
+      52341.49074074074
+    ],
+    "cob": [
+      16381.944444444443,
+      11139.72222222222,
+      4836.574074074073
+    ],
+    "env": [
+      7936.0,
+      0,
+      1900
+    ],
+    "cap": [
+      35000,
+      0,
+      0
+    ],
+    "deja": [
+      106766.49074074074,
+      85048.41666666664,
+      44934.28086419752
+    ],
+    "q": [
+      90,
+      90,
+      90
+    ],
+    "contrib": [
+      9608984.166666668,
+      7654357.499999998,
+      4044085.277777777
+    ],
+    "fijos": [
+      285000,
+      1085000,
+      420000
+    ],
+    "dias": [
+      0,
+      0,
+      45
+    ],
+    "clienta": [
+      "Marca demo",
+      "Revendedora demo",
+      "Tienda demo"
+    ],
+    "precio": [
+      "Marca demo",
+      "Reglas demo",
+      "Tienda demo"
+    ],
+    "cacEmpate": 56718.07407407409,
+    "res": [
+      9323984.166666668,
+      6569357.499999998,
+      3624085.277777777
+    ],
+    "resMes": [
+      1864796.8333333335,
+      1313871.4999999995,
+      724817.0555555554
+    ]
+  },
+  "interior": {
+    "ciudades": [
+      {
+        "ciudad": "Ciudad Demo 1",
+        "region": "Región Demo A",
+        "env": 5532,
+        "pct": 0.24,
+        "pauta": 201600.0,
+        "ventas": 5.76
+      },
+      {
+        "ciudad": "Ciudad Demo 2",
+        "region": "Región Demo A",
+        "env": 5932,
+        "pct": 0.2,
+        "pauta": 168000.0,
+        "ventas": 4.8
+      },
+      {
+        "ciudad": "Ciudad Demo 3",
+        "region": "Región Demo B",
+        "env": 6332,
+        "pct": 0.16,
+        "pauta": 134400.0,
+        "ventas": 3.84
+      },
+      {
+        "ciudad": "Ciudad Demo 4",
+        "region": "Región Demo B",
+        "env": 6732,
+        "pct": 0.14,
+        "pauta": 117600.00000000001,
+        "ventas": 3.3600000000000003
+      },
+      {
+        "ciudad": "Ciudad Demo 5",
+        "region": "Región Demo C",
+        "env": 7132,
+        "pct": 0.11,
+        "pauta": 92400.0,
+        "ventas": 2.64
+      },
+      {
+        "ciudad": "Ciudad Demo 6",
+        "region": "Región Demo C",
+        "env": 7532,
+        "pct": 0.09,
+        "pauta": 75600.0,
+        "ventas": 2.16
+      },
+      {
+        "ciudad": "Ciudad Demo 7",
+        "region": "Región Demo D",
+        "env": 7932,
+        "pct": 0.06,
+        "pauta": 50400.0,
+        "ventas": 1.44
+      }
+    ],
+    "embudo": {
+      "prueba": 840000,
+      "visitas": 3000.0,
+      "ventas": 24.0,
+      "cpv": 35000,
+      "deja": 106766.49074074074,
+      "res": 2562395.777777778
+    },
+    "meses": {
+      "nuevas": [
+        7,
+        7,
+        12,
+        12,
+        18,
+        18,
+        18,
+        18,
+        24,
+        24,
+        24,
+        24
+      ],
+      "cacM": [
+        35000,
+        35000,
+        35000,
+        35000,
+        35000,
+        35000,
+        35000,
+        35000,
+        35000,
+        35000,
+        35000,
+        35000
+      ],
+      "clientas": [
+        7,
+        14,
+        26,
+        38,
+        56,
+        74,
+        92,
+        110,
+        134,
+        158,
+        182,
+        206
+      ],
+      "recompras": [
+        0.0,
+        0.105,
+        0.21,
+        0.38999999999999996,
+        0.57,
+        0.84,
+        1.11,
+        1.38,
+        1.6500000000000001,
+        2.01,
+        2.3699999999999997,
+        2.73
+      ],
+      "ventas": [
+        7.0,
+        7.105,
+        12.21,
+        12.39,
+        18.57,
+        18.84,
+        19.11,
+        19.38,
+        25.65,
+        26.009999999999998,
+        26.37,
+        26.73
+      ],
+      "pauta": [
+        245000,
+        245000,
+        420000,
+        420000,
+        630000,
+        630000,
+        630000,
+        630000,
+        840000,
+        840000,
+        840000,
+        840000
+      ],
+      "res": [
+        723615.4351851852,
+        738500.9167129629,
+        1287218.8519444445,
+        1312736.820277778,
+        1978853.7330555557,
+        2017130.6855555556,
+        2055407.6380555558,
+        2093684.5905555557,
+        2772560.4875000003,
+        2823596.424166667,
+        2874632.3608333333,
+        2925668.2975000003
+      ],
+      "acum": [
+        723615.4351851852,
+        1462116.3518981482,
+        2749335.2038425924,
+        4062072.0241203704,
+        6040925.757175926,
+        8058056.442731482,
+        10113464.080787038,
+        12207148.671342595,
+        14979709.158842595,
+        17803305.58300926,
+        20677937.943842594,
+        23603606.241342593
+      ],
+      "stock": [
+        549585.6527777778,
+        557829.4375694444,
+        958634.4029166667,
+        972766.6054166666,
+        1457972.2245833334,
+        1479170.528333333,
+        1500368.8320833333,
+        1521567.1358333332,
+        2013838.8562499995,
+        2042103.26125,
+        2070367.6662499998,
+        2098632.0712499996
+      ]
+    },
+    "anio": {
+      "nuevas": 206,
+      "recompras": 13.365,
+      "ventas": 219.36499999999998,
+      "pauta": 7210000,
+      "res": 23603606.241342593
+    },
+    "ltv": 125984.45907407407,
+    "cacMax": 66927.32740740741,
+    "semaforo": [
+      {
+        "color": "verde",
+        "hasta": 35000,
+        "accion": "Explorar el siguiente escenario ficticio."
+      },
+      {
+        "color": "amarillo",
+        "hasta": 56718.07407407409,
+        "accion": "Comparar supuestos y repetir la simulación."
+      },
+      {
+        "color": "rojo",
+        "hasta": 56718.07407407409,
+        "accion": "Revisar la simulación antes de avanzar."
+      }
+    ]
+  },
+  "pasos": [
+    {
+      "cuando": "Etapa 1",
+      "que": "Seleccionar el catálogo demo",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 2",
+      "que": "Preparar fotos de ejemplo",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 3",
+      "que": "Definir supuestos inventados",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 4",
+      "que": "Simular el pedido",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 5",
+      "que": "Comparar los escenarios",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 6",
+      "que": "Revisar el resultado",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    },
+    {
+      "cuando": "Etapa 7",
+      "que": "Restablecer la prueba",
+      "como": "Ejercicio ficticio; usar sólo la información de esta demo."
+    }
+  ],
+  "fuentes": [
+    {
+      "que": "Catálogo, importes y escenarios completamente ficticios.",
+      "fuente": "Datos sintéticos de la demostración",
+      "url": ""
+    }
+  ]
+}

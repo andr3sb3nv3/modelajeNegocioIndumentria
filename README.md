@@ -1,44 +1,55 @@
-# TRAMA · Modelaje de negocio de indumentaria
+# Modelaje de negocio · Indumentaria
 
-Demo pública de dashboards para mostrar cómo puede trabajar una marca de indumentaria con sus ventas, rentabilidad, productos y producción. Los datos de **Lino Studio** son ficticios y están identificados como demostración en la interfaz. No hay login.
+Aplicación pública para mostrar dashboards de una marca ficticia. Reproduce el diseño y las herramientas de consulta de la aplicación de referencia, con identidad y datos propios. No utiliza datos, cuentas, credenciales ni integraciones de BENVEAPP.
 
 ## Publicar en Vercel
 
-1. Importar `andr3sb3nv3/modelajeNegocioIndumentria` y seleccionar la rama `main`.
-2. Usar el preset **Vite**, comando `npm run build` y carpeta de salida `dist` (ya declarados en `vercel.json`).
-3. Publicar. No hacen falta variables de entorno ni credenciales de Google para la demo.
+1. Importar **andr3sb3nv3/modelajeNegocioIndumentria**, rama **main**.
+2. Seleccionar el framework **Next.js**; el build es `npm run build`.
+3. Publicar con los valores de salida predeterminados de Next.js.
 
-Vercel sirve la aplicación y la función `/api/dashboard` desde el mismo proyecto.
+No requiere variables de entorno, login, cuenta de servicio de Google ni acceso a otro repositorio. El despliegue se realiza desde Vercel cuando el propietario lo decida.
 
-## Fuente de Google Drive
+## Qué permite la demo
 
-La conexión está limitada a `dashboard-demo.json`, dentro de la carpeta **modelaje de negocio de indumentaria**. Sus IDs están en `config/drive-source.json`. Únicamente ese archivo de datos ficticios debe permitir lectura con el enlace; la carpeta y los documentos originales pueden permanecer privados.
+Inicio por día, semana o mes; ventas y canales; stock e historial; costos y punto de equilibrio; informes de resultados, producción, proveedores, clientas y canjes; planificación de lanzamientos, temporadas y objetivos; y calculadoras de precios y canal mayorista. Conserva el menú adaptable y los modos día/noche.
 
-La aplicación **no lee el resto de los 84 archivos copiados ni sus datos reales**. La API descarga el JSON de demo, valida su estructura y exige `demo: true`. Si Drive no responde, el dashboard sigue funcionando con la copia ficticia incluida en `src/data/demo.json`; nunca reemplaza la demo por los documentos del negocio.
+La aplicación es **de consulta**. No registra, simula, importa ni elimina ventas o movimientos, ni modifica planillas. Las rutas antiguas de escritura rechazan las solicitudes. Las calculadoras cambian sus resultados en pantalla sin guardar operaciones.
 
-Para actualizar la muestra, reemplazar el contenido del mismo archivo JSON en Drive, conservando su ID y el esquema. La API vuelve a consultarlo y Vercel puede conservar la respuesta cinco minutos, y hasta diez minutos adicionales mientras se revalida. El botón de actualizar vuelve a pedir los datos disponibles. El archivo `src/lib/schema.ts` define y valida el formato, incluyendo referencias a productos.
+Las ventas y los movimientos comienzan vacíos por decisión del propietario. El stock, los gastos, los productos, los costos y los planes son ejemplos ficticios creados para esta demo. No hay clientes, proveedores, importes o datos operativos tomados de otra aplicación.
 
-Opcionalmente, `DEMO_DRIVE_FILE_ID` permite seleccionar otro JSON público de demostración. Se configura solo en el servidor, nunca en una variable con prefijo `VITE_`.
+## Drive independiente
 
-## Desarrollo y verificación
+Carpeta: [modelaje de negocio de indumentaria](https://drive.google.com/drive/folders/1Hp3J2NY-koKbr2rHlDC_eDREJdlTwOj2).
 
-Requiere Node.js 22.12 o superior.
+Contiene la estructura nueva de carpetas y **17 libros nativos de Google Sheets**, con 41 pestañas. La lectura pública del enlace se limita a esta biblioteca ficticia. No debe colocarse información real en esta carpeta pública.
+
+`config/demo-drive.json` enumera los únicos libros y pestañas que puede consultar el servidor. La aplicación no descubre archivos de otras carpetas ni acepta IDs de planillas enviados por visitantes. Los enlaces de fuente llevan a estos mismos libros.
+
+La fuente principal son las planillas nativas, consultadas de forma anónima y con una caché de lectura de hasta 60 segundos. Si Google no responde, se usa el snapshot JSON ficticio de la misma carpeta y, como respaldo, los fixtures ficticios del repositorio. `GET /api/demo/state` indica el modo de consulta y las fuentes utilizadas por esa instancia del servidor.
+
+## Actualizar datos cuando se solicite
+
+Los datos iniciales tienen fecha de corte **20 de octubre de 2026**. No se generan ventas automáticamente al pasar los días ni al abrir el sitio.
+
+Cuando el propietario pida poblar ventas ficticias a una fecha nueva:
+
+1. Trabajar únicamente en los libros de este manifiesto y mantener las posiciones de las columnas que usan los lectores.
+2. Conciliar ventas, canales, stock y movimientos, sin duplicar operaciones entre las hojas de origen y sus copias.
+3. Actualizar la fecha de corte de `config/demo-drive.json`, el snapshot ficticio y los fixtures de respaldo.
+4. Verificar los tableros y las pruebas antes de publicar el cambio del repositorio.
+
+`npm run demo:export` genera el snapshot a partir de los fixtures; **no escribe en Drive ni inventa ventas nuevas**. El snapshot se reemplaza en su mismo archivo de Drive, conservando el ID. Las hojas se editan por separado cuando el propietario lo pida.
+
+## Desarrollo
+
+Requiere Node.js 22.12 o posterior.
 
 ```sh
 npm ci
-npm run dev
+npm run dev -- --port 5173
 npm test
 npm run build
 ```
 
-`npm run dev` y `npm run preview` incluyen la misma API que se usa en Vercel. Los filtros y las descargas CSV se calculan con los datos visibles. Los importes están en ARS y los períodos se basan en la fecha del conjunto de demostración, para que la muestra siga siendo consistente con el paso del tiempo.
-
-Para actualizar también la copia incluida antes de un commit:
-
-```sh
-npm run sync:drive
-npm test
-npm run build
-```
-
-La sincronización solo escribe la copia local después de validar el archivo completo. Los gastos de un canal se asignan según su participación en ventas; no representan una atribución contable real.
+Los importes se muestran en ARS. Las descargas de los modelos mayoristas contienen únicamente supuestos ficticios y fórmulas propias de la demo.

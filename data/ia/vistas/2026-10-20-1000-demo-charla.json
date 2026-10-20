@@ -1,0 +1,34 @@
+{
+  "fecha": "2026-10-20T10:00:00-03:00",
+  "pedido": "Mostrar un ejemplo usando solamente información ficticia.",
+  "titulo": "Conversación de ejemplo sobre inventario",
+  "resumen": "Un intercambio inventado para mostrar cómo se guardan conversaciones y decisiones.",
+  "puntos": [
+    {
+      "texto": "Recorrer la colección inventada",
+      "ancla": "#coleccion"
+    },
+    {
+      "texto": "Consultar el historial ficticio",
+      "ancla": "#prueba"
+    }
+  ],
+  "html": "<!doctype html><html lang=\"es\"><meta charset=\"utf-8\"><title>Conversación de ejemplo sobre inventario</title><style>body{font-family:system-ui;margin:0;padding:32px;color:#222;background:#f7f4ef}h1{font-weight:500}section{padding:20px;background:white;margin:18px 0;border-radius:14px}strong{color:#8f5277}</style><body><p>DEMO · DATOS FICTICIOS</p><h1>Conversación de ejemplo sobre inventario</h1><p>Un intercambio inventado para mostrar cómo se guardan conversaciones y decisiones.</p><section id=\"coleccion\"><h2>Una colección de ejemplo</h2><p>Aurora, Bruma, Duna y Luma son modelos inventados. Sus talles, colores e importes se usan para probar el tablero.</p></section><section id=\"prueba\"><h2>Una prueba con contexto</h2><p>Consultar el historial ficticio y comparar la vista de stock. Este contenido no describe operaciones reales.</p></section></body></html>",
+  "fuentes": [
+    {
+      "titulo": "Libros sintéticos de la demo"
+    }
+  ],
+  "origen": "charla",
+  "quien": "Equipo demo",
+  "charla": [
+    {
+      "quien": "Equipo demo",
+      "texto": "Queremos probar un movimiento de inventario ficticio."
+    },
+    {
+      "quien": "Asistente demo",
+      "texto": "Podemos consultar el stock de Aurora y revisar el historial disponible en la demo de lectura."
+    }
+  ]
+}
