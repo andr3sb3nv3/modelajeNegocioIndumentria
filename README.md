@@ -16,7 +16,7 @@ Inicio por día, semana o mes; ventas y canales; stock e historial; costos y pun
 
 La aplicación es **de consulta**. No registra, simula, importa ni elimina ventas o movimientos, ni modifica planillas. Las rutas antiguas de escritura rechazan las solicitudes. Las calculadoras cambian sus resultados en pantalla sin guardar operaciones.
 
-Las ventas y los movimientos comienzan vacíos por decisión del propietario. El stock, los gastos, los productos, los costos y los planes son ejemplos ficticios creados para esta demo. No hay clientes, proveedores, importes o datos operativos tomados de otra aplicación.
+Las ventas ficticias fueron cargadas por pedido del propietario hasta el **20 de octubre de 2026**, con un histórico desde el 11 de agosto de 2024 para explorar las comparaciones por mes, temporada y últimos 12 meses contra sus períodos anteriores. No se agregan ventas al abrir el sitio ni al pasar los días. El inventario muestra un conteo ficticio al corte de la demo. El stock, los gastos, los productos, los costos y los planes son ejemplos ficticios creados para esta demo. No hay clientes, proveedores, importes o datos operativos tomados de otra aplicación.
 
 ## Drive independiente
 

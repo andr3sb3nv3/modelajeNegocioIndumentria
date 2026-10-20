@@ -9,6 +9,7 @@ import { OPTS, inR, rango } from "@/lib/periodo";
 import { leerMovimientos, vigentes } from "@/lib/stock";
 import { HistorialVentas, type VentaC } from "@/components/StockApp";
 import { USUARIO_TN } from "@/lib/sync";
+import { DEMO_ONLINE_USER } from "@/lib/demo-sales-movements";
 
 export const dynamic = "force-dynamic";
 const DIAS = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
@@ -36,10 +37,10 @@ export default async function Ventas({ searchParams }: { searchParams: Promise<{
     return t ? `/ventas?${t}` : "/ventas";
   };
 
-  // Ventas que la vendedora cargó en la app (hoja Movimientos): acá se ve qué vestido exacto salió y quién lo cargó
-  const esTN = (m: { usuario: string }) => m.usuario === USUARIO_TN;
+  // Historial ficticio: el canal online despacha desde el depósito de la demo.
+  const esOnline = (m: { usuario: string }) => m.usuario === USUARIO_TN || m.usuario === DEMO_ONLINE_USER;
   const enApp = vigentes(app.movs).filter((m) => m.tipo === "venta" && inR(m.f, r))
-    .filter((m) => !canal || (canal === "Online" ? esTN(m) || grupoCanal(m.local) === "Online" : !esTN(m) && grupoCanal(m.local) === canal))
+    .filter((m) => !canal || (canal === "Online" ? esOnline(m) || grupoCanal(m.local) === "Online" : !esOnline(m) && grupoCanal(m.local) === canal))
     .sort((a, b) => (a.ts < b.ts ? 1 : -1));
   const v = d.ventas.filter((x) => delCanal(x) && inR(x.f, r)), c = d.ventas.filter((x) => delCanal(x) && inR(x.f, r.cmp));
   const monto = v.reduce((a, x) => a + x.monto, 0), montoC = c.reduce((a, x) => a + x.monto, 0);
@@ -125,10 +126,10 @@ export default async function Ventas({ searchParams }: { searchParams: Promise<{
         </Section>
       </div>
 
-      <Section title="Historial de ventas" sub="Qué prenda exacta se vendió, en el local o en Tiendanube, cuánto y quién la cargó. Sale de la hoja Movimientos de Producción y stock.">
+      <Section title="Historial de ventas" sub="Las ventas ficticias, con modelo, color, talle, importe y canal. Sale de la hoja Movimientos de Producción y stock.">
         {app.error && <p className="err">No pude leer los movimientos: {app.error}</p>}
         {enApp.length ? <HistorialVentas ventas={enApp.map((m): VentaC => ({
-          id: m.id, ts: m.ts, f: m.f, canal: esTN(m) ? "Tiendanube" : "Local", local: m.local,
+          id: m.id, ts: m.ts, f: m.f, canal: esOnline(m) ? "Online" : "Local", local: m.local,
           prenda: `${m.modelo} · ${m.color} · T${m.talle}`, cant: -m.cant, monto: m.monto, quien: m.usuario.split("@")[0], medio: m.medio,
         }))} /> : !app.error && <p className="empty">En este período no hay ventas registradas en Movimientos{canal ? ` para ${canal}` : ""}.</p>}
       </Section>

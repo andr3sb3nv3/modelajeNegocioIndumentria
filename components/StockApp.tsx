@@ -76,7 +76,7 @@ export function SyncBadge({ leido }: { leido: string }) {
   );
 }
 
-export type VentaC = { id: string; ts: string; f: string; canal: "Local" | "Tiendanube"; local: string; prenda: string; cant: number; monto: number; quien: string; medio: string };
+export type VentaC = { id: string; ts: string; f: string; canal: "Local" | "Online"; local: string; prenda: string; cant: number; monto: number; quien: string; medio: string };
 
 /** Historial de ventas con filtros por canal, prenda y quién la cargó. */
 export function HistorialVentas({ ventas }: { ventas: VentaC[] }) {
@@ -89,7 +89,7 @@ export function HistorialVentas({ ventas }: { ventas: VentaC[] }) {
   return (
     <>
       <div className="chipsel" role="radiogroup" aria-label="Canal" style={{ marginBottom: 8 }}>
-        {(["", "Local", "Tiendanube"] as const).map((c) => (
+        {(["", "Local", "Online"] as const).map((c) => (
           <button key={c} type="button" role="radio" aria-checked={canal === c} className={canal === c ? "on" : ""} onClick={() => setCanal(c)}>{c || "Todas"}</button>
         ))}
       </div>
@@ -107,7 +107,7 @@ export function HistorialVentas({ ventas }: { ventas: VentaC[] }) {
             <div className="li" key={v.id}>
               <div>
                 <div className="t">{v.prenda}{v.cant > 1 ? ` ×${v.cant}` : ""}</div>
-                <div className="m"><span className={`pill ${v.canal === "Tiendanube" ? "good" : "neu"}`}>{v.canal}</span>{v.local} · {v.quien} · {cuando(v.ts, v.f)}{v.medio ? ` · ${v.medio}` : ""}</div>
+                <div className="m"><span className={`pill ${v.canal === "Online" ? "good" : "neu"}`}>{v.canal}</span>{v.local} · {v.quien} · {cuando(v.ts, v.f)}{v.medio ? ` · ${v.medio}` : ""}</div>
               </div>
               <div className="v">{v.monto ? `$ ${fmtN(v.monto)}` : "—"}</div>
             </div>

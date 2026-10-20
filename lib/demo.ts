@@ -1,5 +1,6 @@
 import type { Data } from "./data";
 import { DEMO_AS_OF } from "./config";
+import { demoSalesMovements } from "./demo-sales-movements";
 export { DEMO_AS_OF };
 
 /** Reproducible, entirely invented books. No production IDs or source rows are used. */
@@ -29,8 +30,9 @@ function createBooks(): DemoWorkbook[] {
   const ventas: DemoCell[][] = [];
   const si: DemoCell[][] = [], online: DemoCell[][] = [];
   const customerTotals = new Map<string, { prendas: number; ultima: string; temps: Record<string, number> }>();
-  for (let day = -400; day < 0; day++) {
-    const f = date(day), index = day + 400;
+  // Historical example populated at the owner's request; the cutoff never advances by itself.
+  for (let day = -800; day <= 0; day++) {
+    const f = date(day), index = day + 800;
     for (const channel of ["San Isidro", "Online", "Honduras", ...(index % 4 === 0 ? ["Otros canales"] : [])]) {
       const modelIndex = (index + (channel === "Online" ? 3 : channel === "Honduras" ? 5 : 0)) % DEMO_MODELS.length;
       const modelo = DEMO_MODELS[modelIndex];
@@ -58,7 +60,8 @@ function createBooks(): DemoWorkbook[] {
     const row: DemoCell[] = [id, serial(f), f.slice(0, 7), tipo, cat, cat === "Otros" ? "Moldería / Desarrollo" : "", description, proveedor, "Transferencia", amount, "ARS", pending ? "Pendiente" : "Pagado", pending ? date(4) : "", review ? "" : "Comprobante ficticio", "Movimiento ficticio", 1, amount, review ? "A revisar" : "OK", "DEMO"];
     gastos.push(row);
   };
-  const months = [...new Set(ventas.map(r => String(r[1])))];
+  // Keep the existing expense fixture unchanged when extending only sales history.
+  const months = [...new Set(ventas.filter(r => Number(r[0]) >= serial(date(-400))).map(r => String(r[1])))];
   for (const ym of months) {
     pushExpense(`${ym}-03`, "Fijo", "Sueldos", "Equipo de la marca demo", "Equipo Demo", 1436000);
     pushExpense(`${ym}-05`, "Fijo", "Alquileres", "Espacio de atención demo", "Espacio Demo Centro", 527000);
@@ -76,7 +79,7 @@ function createBooks(): DemoWorkbook[] {
   gastos.sort((a,b) => Number(a[1]) - Number(b[1]));
 
   const stock: DemoCell[][] = [];
-  const countDate = date(-7);
+  const countDate = DEMO_AS_OF;
   for (const local of ["San Isidro", "Depósito", "Honduras"]) for (let m = 0; m < DEMO_MODELS.length; m++) for (let c = 0; c < colors.length; c++) for (let size = 1; size <= 4; size++) {
     const quantity = 4 + ((m * 7 + c * 3 + size + local.length) % 9);
     stock.push([serial(countDate), local, DEMO_MODELS[m], colors[c], String(size), quantity, quantity, "Conteo ficticio", "T27", "DEMO"]);
@@ -113,7 +116,7 @@ function createBooks(): DemoWorkbook[] {
   const costHead = ["Temporada","Modelo","Tela","Avíos","Confección","Estampado","Etiquetas y packaging","Merma","Costo de fábrica","Precio de venta","Comisión y envío","Datos de ejemplo"];
   const costs = DEMO_MODELS.map((m,i): DemoCell[]=>{const tela=14800+i*720,avios=1700+i*60,conf=23500+i*1100,est=900+i*80,pack=1250,merma=Math.round((tela+conf)*0.06);return["T27",m,tela,avios,conf,est,pack,merma,tela+avios+conf+est+pack+merma,prices[i],Math.round(prices[i]*0.065),1];});
   const output:DemoWorkbook[]=[
-    book("demo-ventas","02 · Ventas maestro",{Todos:titleRows("Ventas",["Fecha","Mes","Canal","Clienta","Modelo","Prendas","Monto","Medio de pago","Origen","Notas"],2,ventas),"Vivo San Isidro":si,"Vivo Online":online}),
+    book("demo-ventas","02 · Ventas maestro",{Todos:titleRows("Ventas",["Fecha","Mes","Canal","Clienta","Modelo","Prendas","Monto","Medio de pago","Origen","Notas"],2,ventas),"Vivo San Isidro":[["FECHA", "CLIENTE", "DNI", "UN", "$", "SEÑA", "Ruedo", "METODO DE PAGO", "LUGAR", "MODELO", "NOTAS"],...si],"Vivo Online":[["FECHA", "CLIENTE", "DNI", "UN", "$", "SEÑA", "Ruedo", "METODO DE PAGO", "LUGAR", "PROVINCIA", "MODELO", "NOTAS"],...online]}),
     book("demo-ventas-si","Ventas showroom",{VENTAS:titleRows("Ventas showroom",["Referencia","FECHA","CLIENTE","DNI","UN","$","SEÑA","Ruedo","METODO DE PAGO","LUGAR","MODELO","NOTAS"],5,si.map(r=>["DEMO",...r]))}),
     book("demo-ventas-online","Ventas online",{VENTAS:titleRows("Ventas online",["Referencia","FECHA","CLIENTE","DNI","UN","$","SEÑA","Ruedo","METODO DE PAGO","LUGAR","PROVINCIA","MODELO","NOTAS"],5,online.map(r=>["DEMO",...r]))}),
     book("demo-gastos","01 · Gastos maestro",{Gastos:titleRows("Gastos",expenseHead,5,gastos),Listas:[["Tipo","Categoría","Medio de pago"],["Fijo","Sueldos","Transferencia"],["Variable","Telas","Efectivo"],["","Talleres","Mercado Pago"],["","Publicidad","Tarjeta"]]}),
@@ -134,16 +137,8 @@ function createBooks(): DemoWorkbook[] {
   const monthsHead=["Área","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
   const objectiveRows:DemoCell[][]=[["Producción","Diseño ficticio","Diseño ficticio","Muestras","Muestras","Telas demo","Confección demo","Control de calidad","Entrega","Reposición","Cápsula demo","Reposición","Evaluación"],["Contenido","Ideas demo","Paleta","Taller","Texturas","Proceso","Comunidad","Previa","Colección Horizonte","Estilos","Cápsula","Promoción demo","Balance"],["Ventas","Revisar métricas","Revisar métricas","Revisar métricas","Revisar métricas","Revisar métricas","Revisar métricas","Revisar métricas","Lanzamiento","Seguimiento","Seguimiento","Promoción demo","Cierre"]];
   output.push(book("demo-plan-objetivos","Objetivos · plan por área",{"Plan 2026":planRows("Objetivos ficticios 2026",monthsHead,objectiveRows),"Plan 2025":planRows("Objetivos ficticios 2025",monthsHead,objectiveRows),"Tareas de la dueña":planRows("Tareas de ejemplo",["Tarea","Descripción","Frecuencia","Área","Archivo en Codex / dónde se hace","Última vez"],[["Revisar ventas","Validar movimientos de ejemplo","Semanal","Ventas","Ventas maestro",DEMO_AS_OF],["Contar prendas","Verificar inventario ficticio","Mensual","Stock","Producción y stock",DEMO_AS_OF]]),"Tareas de vendedoras":planRows("Tareas del equipo demo",["Local","Tarea"],[["San Isidro","Atender consultas de ejemplo"],["Depósito","Revisar talles ficticios"]]),Mayoristas:planRows("Canal mayorista de ejemplo",["Objetivo","Descripción"],[["Probar un canal","Comparar escenarios ficticios sin tomar compromisos comerciales"]])}));
-  // Public presentation starts without operational sales. Populate only on explicit request.
-  for (const b of output) {
-    if (b.id === "demo-ventas") { b.sheets.Todos = b.sheets.Todos.slice(0, 1); b.sheets["Vivo San Isidro"] = [["FECHA", "CLIENTE", "DNI", "UN", "$", "SEÑA", "Ruedo", "METODO DE PAGO", "LUGAR", "MODELO", "NOTAS"]]; b.sheets["Vivo Online"] = [["FECHA", "CLIENTE", "DNI", "UN", "$", "SEÑA", "Ruedo", "METODO DE PAGO", "LUGAR", "PROVINCIA", "MODELO", "NOTAS"]]; }
-    if (b.id === "demo-ventas-si" || b.id === "demo-ventas-online") b.sheets.VENTAS = b.sheets.VENTAS.slice(0, 4);
-    if (b.id === "demo-stock") b.sheets.Movimientos = b.sheets.Movimientos.slice(0, 1);
-    if (b.id === "demo-maestro") {
-      for (const row of b.sheets.Días.slice(7)) { row[5] = 0; row[6] = 0; row[2] = "Registros ficticios de gastos; ventas sin cargar"; }
-    }
-    if (b.id === "demo-clientas") for (const row of b.sheets.Clientas.slice(1)) { row[1] = "Nueva"; for (let col = 2; col <= 8; col++) row[col] = 0; row[9] = ""; }
-  }
+  // Mirror the same historical sales for the read-only history; the cutoff count already includes them.
+  output.find(b => b.id === "demo-stock")!.sheets.Movimientos = [movHead, ...demoSalesMovements(ventas, DEMO_AS_OF)];
   return output;
 }
 
