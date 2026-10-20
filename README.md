@@ -6,7 +6,7 @@ Aplicación pública para mostrar dashboards de una marca ficticia. Reproduce el
 
 1. Importar **andr3sb3nv3/modelajeNegocioIndumentria**, rama **main**.
 2. Seleccionar el framework **Next.js**; el build es `npm run build`.
-3. Publicar con los valores de salida predeterminados de Next.js.
+3. Publicar. `vercel.json` fija el framework y la salida `.next`, también si el proyecto conservaba ajustes de una demo anterior.
 
 No requiere variables de entorno, login, cuenta de servicio de Google ni acceso a otro repositorio. El despliegue se realiza desde Vercel cuando el propietario lo decida.
 
