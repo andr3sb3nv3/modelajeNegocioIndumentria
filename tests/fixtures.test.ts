@@ -23,15 +23,15 @@ test("requested fictitious sales preserve parser positions and include the fixed
 });
 test("channel sources and alternative copies reconcile without counting sales twice",()=>{
  const master=demoWorkbook("demo-ventas")!.sheets;
- const parse=(name:string,index:number)=>ventasPlanilla(demoWorkbook(name)!.sheets.VENTAS.slice(4).map(r=>r.slice(1)),name==="demo-ventas-si"?"San Isidro":"Online",index);
+ const parse=(name:string,index:number)=>ventasPlanilla(demoWorkbook(name)!.sheets.VENTAS.slice(4).map(r=>r.slice(1)),name==="demo-ventas-si"?"Rosario":"Online",index);
  const si=parse("demo-ventas-si",9),online=parse("demo-ventas-online",10);
- for(const [channel,rows] of [["San Isidro",si],["Online",online]] as const){
+ for(const [channel,rows] of [["Rosario",si],["Online",online]] as const){
   const originals=demoData().ventas.filter(v=>v.canal===channel);
   assert.equal(rows.length,801);assert.equal(rows.reduce((s,r)=>s+r.monto,0),originals.reduce((s,r)=>s+r.monto,0));
   const copy=ventasPlanilla(master[`Vivo ${channel}`],channel,channel==="Online"?10:9);
   assert.deepEqual(copy,rows);
  }
- const other=master.Todos.slice(1).filter(r=>!/^Registro (San Isidro|Online)$/.test(String(r[8])));
+ const other=master.Todos.slice(1).filter(r=>!/^Registro (Rosario|Online)$/.test(String(r[8])));
  assert.equal(other.length+si.length+online.length,demoData().ventas.length);
  for(const key of ["mes","prev","temp","12m"]){
   const rr=rango(key);assert.ok(demoData().ventas.some(v=>inR(v.f,rr)));
@@ -58,7 +58,7 @@ test("the application loader includes channel sources once when using its bundle
   const data=await getData(),expected=demoData().ventas;
   assert.equal(data.ventas.length,expected.length);
   assert.equal(data.ventas.reduce((s,v)=>s+v.monto,0),expected.reduce((s,v)=>s+v.monto,0));
-  assert.deepEqual(data.fuentesVentas?.map(f=>[f.canal,f.filas,f.hasta]),[["San Isidro",801,DEMO_AS_OF],["Online",801,DEMO_AS_OF]]);
+  assert.deepEqual(data.fuentesVentas?.map(f=>[f.canal,f.filas,f.hasta]),[["Rosario",801,DEMO_AS_OF],["Online",801,DEMO_AS_OF]]);
  } finally {globalThis.fetch=original;}
 });
 test("raw expense, stock and diary matrices use the expected rows and coherent numeric fields",()=>{

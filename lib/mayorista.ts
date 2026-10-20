@@ -1,5 +1,5 @@
 /**
- * Canal mayorista (vender a todo el país desde Tiendanube): las mismas cuentas que la planilla «Canal mayorista»
+ * Canal mayorista (vender a todo el país desde la tienda online): las mismas cuentas que la planilla «Canal mayorista»
  * (scripts/mayorista.py), para que el simulador de /pruebas-4 dé lo mismo que el Excel cuando se mueven los supuestos.
  */
 import modelo from "@/data/mayorista/modelo.json";

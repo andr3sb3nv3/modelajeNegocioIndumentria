@@ -7,7 +7,7 @@ import { readDemoMetadata } from "./demo-store";
 import { ranges } from "./data";
 
 /**
- * Planillas de planificación (carpetas 11, 12 y 13 del Codex), sólo lectura.
+ * Planillas de planificación de la biblioteca ficticia, sólo lectura.
  * Todas siguen el mismo formato: fila 1 título, fila 2 explicación, (datos sueltos como «Día L»), encabezado y filas.
  * Se lee por nombre de columna, así que se pueden sumar filas o columnas sin romper la app.
  */

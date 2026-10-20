@@ -10,7 +10,7 @@ import { GRUPOS, ITEMS, type ItemRevisar, type Lugar } from "@/lib/revisar";
 
 export const dynamic = "force-dynamic";
 
-const FILTROS: [string, string][] = [["todo", "Todo"], ["equipo", "Para vos"], ["claude", "Para Claude"]];
+const FILTROS: [string, string][] = [["todo", "Todo"], ["equipo", "Para vos"], ["asistente", "Para el asistente"]];
 
 /** Para revisar: datos dudosos y pendientes, con qué hacer y quién (sólo la dueña: puedeVer). */
 export default async function Revisar({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
@@ -46,9 +46,9 @@ export default async function Revisar({ searchParams }: { searchParams: Promise<
     hacer: `Contar las ${x.modelo} que quedan y revisar sus ventas desde el conteo.`, quien: "Equipo demo", estado: "pendiente", visto: "En vivo, conteo contra hoja Ventas.",
   });
   if (d.conteo?.error) vivos.push({
-    id: "conteo-t26", grupo: "numeros", t: "No pude leer STOCK VESTIDOS T26",
-    que: `El stock está saliendo de la hoja Stock (conteo del ${fechaCorta(d.conteo.fecha)}) porque STOCK VESTIDOS T26 › STOCK SAN ISIDRO no se pudo usar: ${d.conteo.error}`,
-    donde: [{ t: "STOCK VESTIDOS T26", href: sheetUrl(SHEETS.conteo) }],
+    id: "conteo-t26", grupo: "numeros", t: "No pude leer Conteo de prendas demo",
+    que: `El stock está saliendo de la hoja Stock (conteo del ${fechaCorta(d.conteo.fecha)}) porque Conteo de prendas demo › STOCK ROSARIO no se pudo usar: ${d.conteo.error}`,
+    donde: [{ t: "Conteo de prendas demo", href: sheetUrl(SHEETS.conteo) }],
     hacer: "Revisar los permisos de lectura de la planilla de demostración.", quien: "Equipo demo", estado: "pendiente", visto: "En vivo.",
   });
   for (const f of d.fuentesVentas?.filter((f) => f.error) || []) vivos.push({
@@ -60,13 +60,13 @@ export default async function Revisar({ searchParams }: { searchParams: Promise<
   const conteo = d.stock.reduce((m, s) => (s.fecha > m ? s.fecha : m), "");
   const dias = conteo ? Math.round((Date.parse(hoy) - Date.parse(conteo)) / 864e5) : 0;
   const items = [...vivos, ...ITEMS].map((x) => (x.id === "stock-conteo" && conteo
-    ? { ...x, ...(d.conteo?.fuente === "T26" ? {} : { estado: "pendiente" as const }), t: `El stock sale del conteo del ${fechaCorta(conteo)}${d.conteo?.fuente === "T26" ? " (STOCK VESTIDOS T26)" : " (hoja Stock)"}`, visto: `Último conteo: ${fechaCorta(conteo)}, hace ${dias} días, ${d.conteo?.prendas ?? "—"} prendas en San Isidro. ${x.visto}` }
+    ? { ...x, ...(d.conteo?.fuente === "T26" ? {} : { estado: "pendiente" as const }), t: `El stock sale del conteo del ${fechaCorta(conteo)}${d.conteo?.fuente === "T26" ? " (Conteo de prendas demo)" : " (hoja Stock)"}`, visto: `Último conteo: ${fechaCorta(conteo)}, hace ${dias} días, ${d.conteo?.prendas ?? "—"} prendas en Rosario. ${x.visto}` }
     : x));
 
-  const deQuien = (x: ItemRevisar) => q === "todo" || (q === "equipo" ? x.quien.startsWith("Equipo demo") : x.quien.endsWith("Claude"));
+  const deQuien = (x: ItemRevisar) => q === "todo" || (q === "equipo" ? x.quien.startsWith("Equipo demo") : x.quien.endsWith("Asistente IA"));
   const pend = items.filter((x) => x.estado === "pendiente");
   const hechos = items.filter((x) => x.estado === "resuelto");
-  const nEquipo = pend.filter((x) => x.quien !== "Claude").length, nClaude = pend.filter((x) => x.quien !== "Equipo demo").length;
+  const nEquipo = pend.filter((x) => x.quien !== "Asistente IA").length, nAsistente = pend.filter((x) => x.quien !== "Equipo demo").length;
 
   return (
     <Page compu leido={d.leido} eyebrow="Para revisar" title={<>Datos dudosos y <em>pendientes</em></>}
@@ -74,7 +74,7 @@ export default async function Revisar({ searchParams }: { searchParams: Promise<
       <Kpis>
         <Kpi q={1} n={String(pend.length)} l="Pendientes" />
         <Kpi q={2} n={String(nEquipo)} l="Para vos" />
-        <Kpi q={3} n={String(nClaude)} l="Para Claude" s="Pedímelo en el chat" />
+        <Kpi q={3} n={String(nAsistente)} l="Para el asistente" s="Pedímelo en el chat" />
         <Kpi q={4} n={String(hechos.length)} l="Resueltos" />
       </Kpis>
       <div className="rv-f"><Seg opts={FILTROS} value={q} href={(k) => (k === "todo" ? "/revisar" : `/revisar?q=${k}`)} label="Quién" /></div>
@@ -100,7 +100,7 @@ export default async function Revisar({ searchParams }: { searchParams: Promise<
 }
 
 function Tarjeta({ x }: { x: ItemRevisar }) {
-  const tono = x.estado === "resuelto" ? "good" : x.quien === "Claude" ? "cl" : "warn";
+  const tono = x.estado === "resuelto" ? "good" : x.quien === "Asistente IA" ? "cl" : "warn";
   return (
     <article className={`rv-i${x.estado === "resuelto" ? " ok" : ""}`}>
       <header>

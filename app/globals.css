@@ -283,7 +283,7 @@ a.act { text-decoration: none; }
 .tc i { font: 600 9px var(--body); font-style: normal; color: var(--muted); }
 .sync { white-space: nowrap; }
 
-/* Estado de sincronización con Tiendanube */
+/* Estado de sincronización con la tienda online */
 .syncb { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 12px; color: var(--muted); margin: 10px 0 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
 .syncb b { color: var(--ink); font-weight: 600; }
 .syncb span:last-child { flex-basis: 100%; }
@@ -864,7 +864,7 @@ button.dk:active { transform: scale(.98); }
 .dk .s { display: flex; justify-content: space-between; align-items: center; }
 .dk-go { font-size: 18px; font-weight: 700; line-height: 1; opacity: .55; }
 
-/* Interacción con Claude y Codex (/ia) */
+/* Interacción con Asistente IA (/ia) */
 .ia { display: grid; gap: 18px; padding-bottom: 28px; }
 .ia > section { padding-top: 0; min-width: 0; }
 .ia-top > *, .ia-dias { min-width: 0; }
@@ -898,7 +898,7 @@ button.dk:active { transform: scale(.98); }
 .ia-fuentes span { font-family: var(--display); font-weight: 700; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
 .ia-fuentes a, .ia-fuentes em { font-style: normal; border: 1px solid var(--line); background: #fff; color: var(--ink2); padding: 4px 10px; border-radius: 99px; text-decoration: none; font-weight: 600; }
 
-/* Imágenes de Codex */
+/* Imágenes del asistente */
 .ia-gal { display: grid; gap: 10px; }
 .ia-mosaico { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 @media (min-width: 720px) { .ia-mosaico { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
@@ -938,7 +938,7 @@ button.dk:active { transform: scale(.98); }
 .ia-como { padding: 14px 16px; border-radius: 18px; background: var(--tint); color: var(--ink2); font-size: 13px; line-height: 1.45; display: grid; gap: 4px; }
 .ia-como b { font-family: var(--display); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 
-/* ventas de Tiendanube a mano (/stock/tiendanube) */
+/* Consulta de ventas online */
 .tn-pasos { margin: 0; padding: 12px 14px 12px 34px; border-radius: 18px; background: var(--glass); border: 1px solid var(--glass-b); display: grid; gap: 6px; font-size: 14px; color: var(--ink2); line-height: 1.45; }
 .tn-pasos b { color: var(--ink); }
 .tn-file { position: relative; display: grid; gap: 2px; justify-items: center; text-align: center; padding: 22px 14px; border-radius: 20px; border: 1.5px dashed var(--accent); background: var(--accent-soft); color: var(--accent); cursor: pointer; }
@@ -1034,7 +1034,7 @@ button.dk:active { transform: scale(.98); }
 .ia-charla-h { justify-self: center; font-size: 11.5px; font-weight: 700; color: var(--muted); letter-spacing: .04em; }
 .ia-chat .ia-mas { gap: 10px; }
 
-/* Claude y Codex en compu o tele (apaisado, 4:3 o 16:9): charla e historial a la izquierda, la respuesta grande a la derecha */
+/* Asistente IA en compu o tele (apaisado, 4:3 o 16:9): charla e historial a la izquierda, la respuesta grande a la derecha */
 .ia-canvas { container-type: inline-size; }
 @media (min-width: 1000px) {
   .wrap.ancho { max-width: 1680px; padding-left: 28px; padding-right: 28px; }
@@ -1247,7 +1247,7 @@ button.dk:active { transform: scale(.98); }
   .wrap.compu .hv-p > :not(small) { grid-column: 1; }
   .wrap.compu .hv-p small { grid-column: 2; grid-row: 1 / span 6; }
 
-  /* subir Tiendanube: pasos 1 y 2 lado a lado */
+  /* Consulta online: pasos 1 y 2 lado a lado */
   .vd.tn { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 28px; align-items: start; }
   .vd.tn > :nth-child(n+3) { grid-column: 1 / -1; }
   .vd.tn .tn-file { padding: 34px 14px; }

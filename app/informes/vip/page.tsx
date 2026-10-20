@@ -70,7 +70,7 @@ export default async function Vip() {
       <Back />
       <div style={{ height: 12 }} />
       <Kpis>
-        <Kpi q={1} n={fmt.n(rows.length)} l="Clientas distintas" back={{ q: "Filas de la hoja Clientas de Clientas de demostración.", a: "Junta San Isidro, Online, Honduras y las temporadas T22–T24.", src }} />
+        <Kpi q={1} n={fmt.n(rows.length)} l="Clientas distintas" back={{ q: "Filas de la hoja Clientas de Clientas de demostración.", a: "Junta Rosario, Online, Mendoza y las temporadas T22–T24.", src }} />
         <Kpi q={2} n={fmt.n(vip.length)} l="VIP" s="ver reglas abajo" />
         <Kpi q={3} n={fmt.n(frec.length)} l="Frecuentes" s="a una compra de ser VIP" />
         <Kpi q={4} n={rows.length ? fmt.p(una / rows.length) : "—"} l="Compró una sola prenda" s={`${fmt.n(una)} clientas`} />

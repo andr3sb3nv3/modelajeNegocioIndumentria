@@ -29,9 +29,9 @@
   "reunion": null,
   "asesores": [
     {
-      "titulo": "La vista de ventas está preparada",
-      "resumen": "Todavía no se cargaron ventas ficticias. Se incorporarán cuando se solicite expresamente.",
-      "detalle": "Todavía no se cargaron ventas ficticias. Se incorporarán cuando se solicite expresamente.\n\nEjercicio de demostración: no se muestran operaciones del negocio real.",
+      "titulo": "El histórico ficticio permite comparar ventas",
+      "resumen": "La demo incluye ventas inventadas hasta el 20 de octubre de 2026, con historial para comparar meses, temporadas y canales.",
+      "detalle": "La demo incluye ventas inventadas hasta el 20 de octubre de 2026, con historial para comparar meses, temporadas y canales.\n\nEjercicio de demostración: las localidades, personas, productos e importes son ejemplos ficticios.",
       "fuentes": [
         {
           "titulo": "Planillas ficticias de la demo"
@@ -41,8 +41,8 @@
       "emoji": "📊",
       "recomendaciones": [
         {
-          "titulo": "Recorrer las vistas vacías de ventas",
-          "aclaracion": "No hay registros operativos precargados ni formularios de carga habilitados."
+          "titulo": "Comparar períodos y canales",
+          "aclaracion": "Explorar Rosario, Mendoza y la tienda online; la aplicación mantiene sus vistas de consulta sin habilitar carga de operaciones."
         }
       ]
     },

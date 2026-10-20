@@ -15,7 +15,7 @@ import { SubirTN } from "@/components/SubirTN";
 export const dynamic = "force-dynamic";
 const TALLES = ["1", "2", "3", "4"];
 
-const VISTAS = [{ k: "stock", t: "Stock" }, { k: "mov", t: "Ventas y movimientos" }, { k: "tn", t: "Tiendanube" }] as const;
+const VISTAS = [{ k: "stock", t: "Stock" }, { k: "mov", t: "Ventas y movimientos" }, { k: "tn", t: "Online" }] as const;
 
 /** Consulta del stock y los movimientos registrados en las planillas de demostración. */
 export default async function Stock({ searchParams }: { searchParams: Promise<{ l?: string; vender?: string; v?: string; c?: string }> }) {
@@ -60,7 +60,7 @@ export default async function Stock({ searchParams }: { searchParams: Promise<{ 
 
   const hoy = hoyBA();
   const sinMatch = online.lineas.filter((x) => !x.ok);
-  const src: [string, string][] = [...(d.conteo?.fuente === "T26" ? [["STOCK VESTIDOS T26", sheetUrl(SHEETS.conteo)] as [string, string]] : []), ["Producción y stock", sheetUrl(SHEETS.stock)]];
+  const src: [string, string][] = [...(d.conteo?.fuente === "T26" ? [["Conteo de prendas demo", sheetUrl(SHEETS.conteo)] as [string, string]] : []), ["Producción y stock", sheetUrl(SHEETS.stock)]];
   const srcV: [string, string][] = [...src, ["02 · Ventas maestro", sheetUrl(SHEETS.ventas)]];
   const colores: Record<string, string[]> = {};
   for (const i of items) (colores[i.modelo] ||= []).includes(i.color) || colores[i.modelo].push(i.color);
@@ -69,7 +69,7 @@ export default async function Stock({ searchParams }: { searchParams: Promise<{ 
   return (
     <Page compu leido={d.leido} eyebrow="Stock por modelo" title={<>Qué hay <em>para vender</em></>}
       lede={d.conteo?.fuente === "T26"
-        ? `Lo que dice hoy la planilla de demostración (STOCK VESTIDOS T26, «STOCK AL ${fechaCorta(d.conteo.fecha)}»), sin restarle ventas: el equipo demo la mantiene al día.`
+        ? `Lo que dice hoy la planilla de demostración (Conteo de prendas demo, «STOCK AL ${fechaCorta(d.conteo.fecha)}»), sin restarle ventas: el equipo demo la mantiene al día.`
         : `Conteo del ${fechaCorta(fecha) || "—"}${local === "todos" ? "" : ` en ${local}`}, menos lo vendido después: los movimientos registrados${online.activo ? ", las ventas online" : ""} y la hoja Ventas.`}>
       <div className="stk-cab">
         <nav className="seg" style={{ marginBottom: 14 }} aria-label="Local">
@@ -106,7 +106,7 @@ export default async function Stock({ searchParams }: { searchParams: Promise<{ 
         </div>
         <div className="stk-side">
           <SyncBadge leido={d.leido} />
-          {online.error && <p className="err" style={{ marginTop: 10 }}>No pude leer Tiendanube: {online.error}</p>}
+          {online.error && <p className="err" style={{ marginTop: 10 }}>No pude leer las ventas online: {online.error}</p>}
           {sinMatch.length > 0 && <p className="note">{sinMatch.length} {sinMatch.length === 1 ? "venta online no coincide" : "ventas online no coinciden"} con ningún modelo/color/talle del conteo y no {sinMatch.length === 1 ? "descontó" : "descontaron"} stock (marcadas abajo).</p>}
           {vendHoja > 0 && <p className="note">{fmt.n(vendHoja)} {vendHoja === 1 ? "prenda vendida" : "prendas vendidas"} desde el {fechaCorta(fecha)} {vendHoja === 1 ? "está" : "están"} sólo en la hoja Ventas, que no dice color ni talle: se {vendHoja === 1 ? "descuenta" : "descuentan"} del total de cada modelo («Vendidas sin talle»), no de la grilla por talle. Los movimientos con color y talle se descuentan por talle.</p>}
           {deMas.length > 0 && <p className="note">{deMas.map((x) => `${x.modelo}: la hoja Ventas dice ${x.vendidas} vendidas y el conteo tenía ${x.q}`).join(" · ")}. El stock de {deMas.length === 1 ? "ese modelo" : "esos modelos"} queda en 0: conviene recontar{deMas.length === 1 ? "lo" : "los"}.</p>}

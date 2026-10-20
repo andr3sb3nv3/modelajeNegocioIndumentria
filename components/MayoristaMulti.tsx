@@ -39,7 +39,7 @@ const LLANO: Record<string, string> = {
   consig: "Lo que se queda la tienda en consignación", plazoC: "Días para cobrar en consignación", deter: "Devueltos que ya no se venden a precio lleno",
   agente: "Comisión de un agente o showroom", fotos: "Fotos y ficha mayorista, por temporada", visitas: "Visitas y envío de muestrarios, por mes",
   feria: "Feria o showroom, por temporada", cap: "Capacidad mensual supuesta, en prendas",
-  comOn: "Comisión de Tiendanube y pasarela", envOn: "Envío que paga la marca demo en la venta online", cac: "Pauta para conseguir cada venta online nueva", pautaMay: "Pauta para conseguir compradoras mayoristas, por mes",
+  comOn: "Comisión de la tienda online y pasarela", envOn: "Envío que paga la marca demo en la venta online", cac: "Pauta para conseguir cada venta online nueva", pautaMay: "Pauta para conseguir compradoras mayoristas, por mes",
 };
 
 function Ico({ k }: { k: string }) {

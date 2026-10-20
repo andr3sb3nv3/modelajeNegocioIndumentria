@@ -49,7 +49,7 @@ function irA(raiz: ShadowRoot | null, ancla: string) {
   el.classList.add("ia-foco");
 }
 
-/** Muestra una vista de Claude o Codex (HTML guardado en el repo) aislada en un shadow DOM, con los estilos de la app. */
+/** Muestra una vista de un asistente IA (HTML guardado en el repo) aislada en un shadow DOM, con los estilos de la app. */
 export function VistaHTML({ html, foco }: { html: string; foco?: string }) {
   const host = useRef<HTMLDivElement>(null);
   const raiz = useRef<ShadowRoot | null>(null);

@@ -29,7 +29,7 @@ export default async function Costos({ searchParams }: { searchParams: Promise<{
   const talles = new Map<string, Map<string, number>>(), vendT = new Map<string, Map<string, number>>();
   const sumar = (m: Map<string, Map<string, number>>, k: string, t: string, q: number) => { const x = m.get(k) || new Map<string, number>(); x.set(t, (x.get(t) || 0) + q); m.set(k, x); };
   for (const i of s?.items || []) { const k = claveModelo(i.modelo); stock.set(k, (stock.get(k) || 0) + Math.max(0, i.q)); sumar(talles, k, i.talle, Math.max(0, i.q)); }
-  // Ventas de la hoja Ventas desde el último conteo que no pasaron por la app ni por Tiendanube: se descuentan por modelo
+  // Ventas de la hoja Ventas desde el último conteo que no pasaron por la app ni por la tienda online: se descuentan por modelo
   const sinDesc = s ? vendidasSinDescontar(s) : { porModelo: new Map<string, number>(), total: 0, desde: "" };
   for (const [k, q] of sinDesc.porModelo) stock.set(k, Math.max(0, (stock.get(k) || 0) - q));
   for (const m of vigentes(s?.movs || [])) if (m.tipo === "venta" && m.f >= desde && m.f <= hoy) sumar(vendT, claveModelo(m.modelo), m.talle, Math.abs(m.cant));

@@ -54,14 +54,14 @@ export function normMedio(s: string) {
 /** Color fijo por canal (paleta de los tableros la marca demo) */
 export function colorCanal(c: string) {
   const k = c.toLowerCase();
-  if (k.includes("isidro")) return "var(--s1)";
-  if (k.includes("hondu")) return "var(--s2)";
+  if (k.includes("rosario")) return "var(--s1)";
+  if (k.includes("mendoza")) return "var(--s2)";
   if (k.includes("online") || k.includes("web") || k.includes("shop")) return "var(--s3)";
   return "var(--s4)";
 }
 
 export const grupoCanal = (c: string) => {
   const k = c.toLowerCase();
-  return k.includes("isidro") ? "San Isidro" : k.includes("hondu") ? "Honduras" : /online|web|shop/.test(k) ? "Online" : "Otros canales";
+  return k.includes("rosario") ? "Rosario" : k.includes("mendoza") ? "Mendoza" : /online|web|shop/.test(k) ? "Online" : "Otros canales";
 };
-export const CANALES = ["San Isidro", "Honduras", "Online", "Otros canales"];
+export const CANALES = ["Rosario", "Mendoza", "Online", "Otros canales"];

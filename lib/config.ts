@@ -38,7 +38,7 @@ export const INFORMES = [
 
 export const folderUrl = (id: string) => `https://drive.google.com/drive/folders/${id}`;
 
-/** Carpetas 11 · 12 · 13 del Codex (sólo lectura: las planillas mandan) */
+/** Carpetas de planificación de la demo (sólo lectura: las planillas mandan). */
 export const PLAN = {
   carpetas: {
     lanzamientos: DEMO_DRIVE.folders.lanzamientos,

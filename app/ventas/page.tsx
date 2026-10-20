@@ -24,7 +24,7 @@ export default async function Ventas({ searchParams }: { searchParams: Promise<{
   const hoy = hoyBA();
   const meses = Array.from({ length: 24 }, (_, i) => addMonths(ym(hoy), i - 23));
   const canales = CANALES.filter((k) => d.ventas.some((x) => grupoCanal(x.canal) === k && x.f >= meses[0]));
-  // Filtro de canal: reemplaza los viejos informes «Showroom San Isidro» y «Shop Online Ventas»
+  // Filtro de canal: reemplaza los viejos informes «Showroom Rosario» y «Shop Online Ventas»
   const canal = canales.find((k) => slug(k) === cq) || null;
   const delCanal = (x: { canal: string }) => !canal || grupoCanal(x.canal) === canal;
   const qs = (o: { p?: string; c?: string | null; u?: string }) => {
@@ -47,7 +47,7 @@ export default async function Ventas({ searchParams }: { searchParams: Promise<{
   const pr = v.reduce((a, x) => a + x.prendas, 0), prC = c.reduce((a, x) => a + x.prendas, 0);
   const tk = pr ? monto / pr : 0, tkC = prC ? montoC / prC : 0;
   const totalNegocio = d.ventas.filter((x) => inR(x.f, r)).reduce((a, x) => a + x.monto, 0);
-  const src: [string, string][] = [["Ventas San Isidro (demo)", sheetUrl(SHEETS.ventasSI)], ["Ventas online (demo)", sheetUrl(SHEETS.ventasOnline)], ["02 · Ventas maestro › Todos (Honduras y otros canales)", sheetUrl(SHEETS.ventas)]];
+  const src: [string, string][] = [["Ventas Rosario (demo)", sheetUrl(SHEETS.ventasSI)], ["Ventas online (demo)", sheetUrl(SHEETS.ventasOnline)], ["02 · Ventas maestro › Todos (Mendoza y otros canales)", sheetUrl(SHEETS.ventas)]];
   const color = canal ? colorCanal(canal) : undefined;
 
   const porCanal = sumBy(v, (x) => grupoCanal(x.canal), (x) => x.monto);

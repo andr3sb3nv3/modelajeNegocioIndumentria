@@ -11,7 +11,7 @@ export type Alerta = { f: string; origen: string; fila: string; detalle: string;
 /** Un día de la semana: números en vivo (ventas, prendas, gastos) + notas y alertas del 17 · Carga de datos maestro */
 export type Dia = {
   f: string; dia: string; entro: string; gastosN: number; gastos: number; fijos: number; prendas: number; ventas: number;
-  /** Ventas $ del día por canal (San Isidro, Honduras, Online, Otros canales) */
+  /** Ventas $ del día por canal (Rosario, Mendoza, Online, Otros canales) */
   canales: Record<string, number>;
   ventasL: VentaDia[]; gastosL: GastoDia[];
   otros: string; alertasTxt: string; estado: string; archivo: string; aclaraciones: string;
@@ -58,7 +58,7 @@ const cero = (): Numeros => ({ ventas: 0, prendas: 0, gastos: 0, fijos: 0, gasto
 /**
  * Ventas $, prendas, gastos $ y cantidad de gastos por día, entre `desde` y `hasta` (aaaa-mm-dd), leídos en vivo:
  *  - Gastos: planilla 01 · Gastos maestro › Gastos (importe en ARS), por fecha del gasto. `gastos` = variables; `fijos` aparte (misma regla que el P&L).
- *  - Ventas: San Isidro y Online de las planillas ficticias del canal, el resto de 02 · Ventas maestro › Todos (ver getData). Para cada día y canal (San Isidro / Honduras / Online / Otros):
+ *  - Ventas: Rosario y Online de las planillas ficticias del canal, el resto de 02 · Ventas maestro › Todos (ver getData). Para cada día y canal (Rosario / Mendoza / Online / Otros):
  *    si la planilla ya tiene ventas de ese día y canal, mandan ésas; si no, se suman las ventas vigentes cargadas
  *    en la app (hoja Movimientos de Producción y stock, sin las anuladas; las que entraron desde Tiendanube, Ref
  *    «tn:», cuentan como Online). Así una venta cargada en los dos lados no se cuenta dos veces.

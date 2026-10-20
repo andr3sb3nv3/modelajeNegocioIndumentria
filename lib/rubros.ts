@@ -21,10 +21,10 @@ export const RUBROS: { r: string; g: GrupoRubro; d: string }[] = [
   { r: "Pauta y agencia", g: "Gastos comerciales", d: "Categoría Publicidad." },
   { r: "Packaging", g: "Gastos comerciales", d: "Categoría Packaging." },
   { r: "Envíos y logística", g: "Gastos comerciales", d: "Categoría Logística / Envíos." },
-  { r: "Plataformas y web", g: "Gastos comerciales", d: "Subcategorías Tienda Nube - Web y Tienda Nube - costo transacción." },
-  { r: "Sueldos y personal", g: "Estructura", d: "Categoría Sueldos, menos Sueldo Anita." },
-  { r: "Dirección", g: "Estructura", d: "Subcategoría Sueldo Anita." },
-  { r: "Alquiler y expensas", g: "Estructura", d: "Categoría Alquileres y subcategoría Expensas showroom CABA / Honduras." },
+  { r: "Plataformas y web", g: "Gastos comerciales", d: "Subcategorías Plataforma online - Web y Plataforma online - costo transacción." },
+  { r: "Sueldos y personal", g: "Estructura", d: "Categoría Sueldos, menos Sueldo Dirección." },
+  { r: "Dirección", g: "Estructura", d: "Subcategoría Sueldo Dirección." },
+  { r: "Alquiler y expensas", g: "Estructura", d: "Categoría Alquileres y subcategoría Expensas showroom Mendoza." },
   { r: "Impuestos", g: "Estructura", d: "Categoría Impuestos." },
   { r: "Otros gastos", g: "Estructura", d: "Lo que queda en la categoría Otros después de sacar talleres y moldería. Abajo, uno por uno." },
 ];
@@ -33,10 +33,10 @@ const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").t
 const POR_SUB: Record<string, string> = {
   "confeccion / taller": "Talleres y confección",
   "molderia / desarrollo": "Moldería y muestras",
-  "tienda nube - web": "Plataformas y web",
-  "tienda nube - costo transaccion": "Plataformas y web",
-  "sueldo anita": "Dirección",
-  "expensas showroom caba / honduras": "Alquiler y expensas",
+  "plataforma online - web": "Plataformas y web",
+  "plataforma online - costo transaccion": "Plataformas y web",
+  "sueldo direccion": "Dirección",
+  "expensas showroom mendoza": "Alquiler y expensas",
 };
 const POR_CAT: Record<string, string> = {
   telas: "Telas", molderia: "Moldería y muestras", merceria: "Mercería y avíos", cierres: "Mercería y avíos",

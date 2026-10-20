@@ -7,9 +7,9 @@ import type { VentaH } from "@/components/Historial";
 const addDias = (iso: string, k: number) => new Date(Date.parse(iso + "T12:00:00Z") + k * 864e5).toISOString().slice(0, 10);
 
 /**
- * Historial de lo cargado en la app (ventas, devoluciones, cambios, préstamos…) y las ventas de Tiendanube subidas.
- * Una fila = lo que se cargó junto (mismo momento y misma persona); las de Tiendanube, por orden.
- * Las ventas se pueden cambiar; todo se puede borrar. La dueña, siempre; la vendedora, lo suyo de los últimos 2 días.
+ * Historial de lo cargado en la app (ventas, devoluciones, cambios, préstamos…) y las ventas de la tienda online subidas.
+ * Una fila = lo que se cargó junto (mismo momento y misma persona); las de la tienda online, por orden.
+ * La interfaz pública presenta estos registros en modo de consulta.
  */
 export function armarHistorial(movs: Mov[], yo: string, admin: boolean, hoy: string): VentaH[] {
   const vivas = new Set(vigentes(movs).map((m) => m.id));
@@ -30,7 +30,7 @@ export function armarHistorial(movs: Mov[], yo: string, admin: boolean, hoy: str
     const tipo = tipos.some((t) => t.startsWith("cambio")) ? "Cambio" : tn ? "Venta online" : TIPOS[tipos[0]];
     return {
       k, ids: ms.map((m) => m.id), f: o.f, hora: o.ts.slice(11, 16), local: o.local, tn, tipo, venta: tipos.length === 1 && tipos[0] === "venta",
-      quien: tn ? "Tiendanube" : o.usuario.split("@")[0] || "—",
+      quien: tn ? "Tienda online" : o.usuario.split("@")[0] || "—",
       prendas: ms.map((m) => ({ modelo: m.modelo, color: m.color, talle: m.talle, cant: Math.abs(m.cant) || 1, signo: Math.sign(m.cant) })),
       monto: ms.reduce((a, m) => a + m.monto, 0), medio: o.medio, clienta: o.clienta, nota: o.nota,
       estado: viva ? "ok" : /Corregida/.test(anulacion.get(o.id)?.nota || "") ? "corregida" : "borrada",

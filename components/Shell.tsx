@@ -11,13 +11,13 @@ const SECCIONES = [
   { href: "/gastos", t: "Gastos", d: "Fijos, variables y pendientes", i: "M3 7h18v12H3zM3 11h18M7 15h3" },
   { href: "/stock", t: "Stock por modelo", d: "Consultar modelos, colores, talles y movimientos", i: "M12 3 3 7.5v9L12 21l9-4.5v-9zM3 7.5 12 12l9-4.5M12 12v9" },
   { href: "/costos", t: "Costo unitario", d: "Cuánto cuesta y cuánto deja cada vestido", i: "M7 3h10l3 5-8 13L4 8zM4 8h16M9.5 3 12 8l2.5-5M12 8v13" },
-  { href: "/ia", t: "Claude y Codex", d: "Lo que charlamos, día por día", i: "M4 5h16v11H9l-5 4zM8 9h8M8 12h5" },
+  { href: "/ia", t: "Asistente IA", d: "Lo que charlamos, día por día", i: "M4 5h16v11H9l-5 4zM8 9h8M8 12h5" },
   { href: "/revisar", t: "Para revisar", d: "Datos dudosos y pendientes, y quién los resuelve", i: "M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18h2" },
 ];
 const PRUEBAS = { href: "/pruebas", t: "Pruebas", d: "Línea del tiempo del negocio", i: "M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3M7 15h10" };
 const PRUEBAS_2 = { href: "/pruebas-2", t: "Prueba estética 2", d: "Línea del día con datos simulados", i: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2" };
 const PRUEBAS_3 = { href: "/pruebas-3", t: "Prueba estética 3", d: "Pulso: anillos, ritmo y reposición", i: "M3 12h4l3-8 4 16 3-8h4" };
-const PRUEBAS_4 = { href: "/pruebas-4", t: "Canal mayorista", d: "Vender a todo el país desde Tiendanube", i: "M3 9l1.5-5h15L21 9M3 9h18M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M5 12v8h14v-8M10 20v-5h4v5" };
+const PRUEBAS_4 = { href: "/pruebas-4", t: "Canal mayorista", d: "Vender a todo el país desde la tienda online", i: "M3 9l1.5-5h15L21 9M3 9h18M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M5 12v8h14v-8M10 20v-5h4v5" };
 const INFO_ICON = "M5 3h10l4 4v14H5zM14 3v5h5M9 13h6M9 17h4";
 
 const activo = (path: string, href: string) => (href === "/" ? path === "/" : path === href || path.startsWith(href + "/"));

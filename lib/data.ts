@@ -8,7 +8,7 @@ import { hoyBA } from "./fmt";
 export type Venta = { f: string; canal: string; modelo: string; prendas: number; monto: number; medio: string; cli: string };
 export type Gasto = { f: string; cat: string; sub?: string; tipo: string; desc: string; prov: string; medio: string; imp: number; est: string; venc: string; comp: boolean; rev: boolean };
 export type StockRow = { fecha: string; local: string; modelo: string; color: string; talle: string; stock: number; temporada: string };
-/** De dónde salió el conteo de stock: la planilla STOCK VESTIDOS T26 (pestaña San Isidro) o, si no se pudo leer, la hoja Stock. */
+/** De dónde salió el conteo de stock: la planilla STOCK VESTIDOS T26 (pestaña Rosario) o, si no se pudo leer, la hoja Stock. */
 export type Conteo = { fuente: "T26" | "Stock"; fecha: string; prendas: number; error?: string };
 /** De dónde salieron las ventas de cada canal: la planilla de demostración del canal o, si no se pudo leer, la copia de 02 · Ventas maestro › Todos. */
 export type FuenteVentas = { canal: string; id: string; via: "planilla" | "importrange" | "copia"; hasta: string; filas: number; error?: string };
@@ -52,9 +52,9 @@ async function load(): Promise<Data> {
     range(SHEETS.ventasOnline, "'VENTAS'!B5:Q").catch((e: Error) => e),
   ]);
   // Ventas (Todos): Fecha, Mes, Canal, Clienta (no se usa), Modelo, Prendas, Monto, Medio de pago, Origen…
-  // San Isidro y Online se leen de sus planillas ficticias; las pestañas «Vivo …» sirven como copia de lectura alternativa.
-  // Honduras, Otros canales y Carga de ventas siguen saliendo de Todos.
-  const vivas = await Promise.all([viva("San Isidro", SHEETS.ventasSI, vSI), viva("Online", SHEETS.ventasOnline, vOn)]);
+  // Rosario y Online se leen de sus planillas ficticias; las pestañas «Vivo …» sirven como copia de lectura alternativa.
+  // Mendoza, Otros canales y Carga de ventas siguen saliendo de Todos.
+  const vivas = await Promise.all([viva("Rosario", SHEETS.ventasSI, vSI), viva("Online", SHEETS.ventasOnline, vOn)]);
   const enVivo = new Set(vivas.filter((x) => x.rows).map((x) => `Registro ${x.canal}`));
   const ventas = v
     .filter((r) => !enVivo.has(str(r[8])))
@@ -84,18 +84,18 @@ async function load(): Promise<Data> {
   let stock = s
     .map((r) => ({ fecha: toISO(r[0]), local: str(r[1]), modelo: title(str(r[2])), color: str(r[3]), talle: str(r[4]), stock: num(r[6]), temporada: str(r[8]) }))
     .filter((x) => x.modelo && x.fecha);
-  // STOCK VESTIDOS T26 › STOCK SAN ISIDRO es el conteo que manda: reemplaza a San Isidro de la hoja Stock si es igual o más nuevo
+  // STOCK VESTIDOS T26 › STOCK ROSARIO es el conteo que manda: reemplaza a Rosario de la hoja Stock si es igual o más nuevo
   let conteo: Conteo;
   const t = t26 instanceof Error ? null : conteoT26(t26, stock);
-  const ultStock = stock.filter((x) => /isidro/i.test(x.local)).reduce((m, x) => (x.fecha > m ? x.fecha : m), "");
+  const ultStock = stock.filter((x) => /rosario/i.test(x.local)).reduce((m, x) => (x.fecha > m ? x.fecha : m), "");
   if (t && t.filas.length && t.fecha >= ultStock) {
     // El conteo físico se interpreta como inventario al día; sólo se restan movimientos posteriores.
     const hoy = hoyBA();
-    stock = [...stock.filter((x) => !/isidro/i.test(x.local)), ...t.filas.map((x) => ({ ...x, fecha: x.fecha > hoy ? x.fecha : hoy }))];
+    stock = [...stock.filter((x) => !/rosario/i.test(x.local)), ...t.filas.map((x) => ({ ...x, fecha: x.fecha > hoy ? x.fecha : hoy }))];
     conteo = { fuente: "T26", fecha: t.fecha, prendas: t.filas.reduce((a, x) => a + x.stock, 0) };
   } else {
     const error = t26 instanceof Error ? String(t26.message).slice(0, 200) : !t ? "No encontré la fecha «STOCK AL dd/mm/aa» ni los talles 1 a 4." : t.fecha < ultStock ? `Su fecha (${t.fecha}) es más vieja que la hoja Stock.` : "No tiene filas con modelo.";
-    conteo = { fuente: "Stock", fecha: ultStock, prendas: stock.filter((x) => x.fecha === ultStock && /isidro/i.test(x.local)).reduce((a, x) => a + x.stock, 0), error };
+    conteo = { fuente: "Stock", fecha: ultStock, prendas: stock.filter((x) => x.fecha === ultStock && /rosario/i.test(x.local)).reduce((a, x) => a + x.stock, 0), error };
   }
   // La hoja Ventas puede incluir o quitar el prefijo «Conjunto»: si el conteo lo incluye, se usa ese nombre
   // en toda la app (así Análisis de ventas, Stock y Costo unitario no lo cuentan como dos modelos distintos)
@@ -106,7 +106,7 @@ async function load(): Promise<Data> {
 }
 
 /** Pestañas alternativas de lectura para cada canal, con las mismas columnas desde B5. */
-export const HOJA_VIVA: Record<string, string> = { "San Isidro": "Vivo San Isidro", Online: "Vivo Online" };
+export const HOJA_VIVA: Record<string, string> = { "Rosario": "Vivo Rosario", Online: "Vivo Online" };
 
 /**
  * Ventas de un canal desde su planilla ficticia; la pestaña «Vivo …» conserva el formato alternativo del lector.
@@ -138,10 +138,10 @@ export function ventasPlanilla(rows: unknown[][], canal: string, cModelo: number
     .filter((x) => x.f);
 }
 
-export const T26_HOJA = "STOCK SAN ISIDRO";
+export const T26_HOJA = "STOCK ROSARIO";
 
 /**
- * Lee la pestaña STOCK SAN ISIDRO de STOCK VESTIDOS T26: secciones en la columna A (CAPSULA…, COLECCION SS226…), NOMBRE y COLOR,
+ * Lee la pestaña STOCK ROSARIO de STOCK VESTIDOS T26: secciones en la columna A (CAPSULA…, COLECCION SS226…), NOMBRE y COLOR,
  * COLOR ESPECÍFICO (o COLOR) y la cantidad por talle bajo el encabezado «STOCK AL dd/mm/aa» (columnas 1, 2, 3, 4). Los nombres se escriben como en la hoja
  * Stock cuando ya existen ahí; se quita el prefijo «Vestido» para cruzar el nombre con Ventas.
  */
@@ -185,9 +185,9 @@ export function conteoT26(rows: unknown[][], previo: StockRow[]): { fecha: strin
     const color = colores.get(`${k(modelo)}|${k(c)}`) || (!c ? "Sin color" : c === c.toUpperCase() ? title(c) : c[0].toUpperCase() + c.slice(1));
     const ss = seccion.match(/ss\s*2?(2\d)\b/i);
     const temporada = ss ? `T${ss[1]}` : /2025|capsula|drop/i.test(seccion) ? "T25" : "";
-    for (const [i, talle] of talles) filas.push({ fecha, local: "San Isidro", modelo, color, talle, stock: num(r[i]), temporada });
+    for (const [i, talle] of talles) filas.push({ fecha, local: "Rosario", modelo, color, talle, stock: num(r[i]), temporada });
     const sinTalle = cActual >= 0 ? num(r[cActual]) - talles.reduce((a, [i]) => a + num(r[i]), 0) : 0;
-    if (sinTalle > 0) filas.push({ fecha, local: "San Isidro", modelo, color, talle: "Sin talle", stock: sinTalle, temporada });
+    if (sinTalle > 0) filas.push({ fecha, local: "Rosario", modelo, color, talle: "Sin talle", stock: sinTalle, temporada });
   }
   return { fecha, filas };
 }

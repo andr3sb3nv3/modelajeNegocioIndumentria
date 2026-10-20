@@ -51,7 +51,7 @@ test("an unrelated sheet ID is rejected before any network request", async () =>
 
 test("future requested sales accept both public CSV dates and numeric sheet dates", () => {
   const row = (date: string | number) => [date, "Clienta Demo 001", "", 2, 50000, "", "", "Transferencia", "", "Cedro"];
-  const sales = ventasPlanilla([row("2026-10-20"), row(46315), row("20/10/26"), row("FECHA")], "San Isidro", 9);
+  const sales = ventasPlanilla([row("2026-10-20"), row(46315), row("20/10/26"), row("FECHA")], "Rosario", 9);
   assert.equal(sales.length, 3);
   assert.equal(sales[2].f, "2026-10-20");
   assert.equal(sales[0].f, "2026-10-20");

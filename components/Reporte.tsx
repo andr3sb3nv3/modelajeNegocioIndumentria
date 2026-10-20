@@ -63,7 +63,7 @@ export function ReporteManana({ r }: { r: Reporte }) {
           );
         })}
       </ul>
-      <p className="rp2-pie">¿Querés saber más de algo? Preguntale a Claude en el proyecto.</p>
+      <p className="rp2-pie">¿Querés saber más de algo? Consultá el asistente de demostración.</p>
     </div>
   );
 }

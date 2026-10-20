@@ -10,14 +10,14 @@ import { USUARIO_TN } from "./sync";
 
 /**
  * Línea del tiempo del día, hora a hora, con dos fuentes:
- *  - notas: lo que cuenta el equipo de prueba en sus charlas con ChatGPT (llegan por /api/linea desde un GPT, o pegando el resumen en /pruebas)
+ *  - notas: lo que cuenta el equipo de prueba en sus charlas con el asistente IA (llegan por /api/linea desde el asistente, o pegando el resumen en /pruebas)
  *  - la hoja Movimientos (ventas del local y online, cambios, préstamos, canjes, contenido, devoluciones y anulaciones)
  * Todo queda guardado en la pestaña «Línea del tiempo» del 17 · Carga de datos maestro (una fila por hecho, sin repetir).
  * Las notas se escriben ahí directo (ID «chat-…») y se leen de ahí.
  */
 export type Evento = { id: string; f: string; hora: string; tipo: Tipo | "nota"; que: string; detalle: string; local: string; monto: number; quien: string; anulado: boolean };
 
-const quienDe = (u: string) => (u === USUARIO_TN ? "Tiendanube" : u.split("@")[0] || "—");
+const quienDe = (u: string) => (u === USUARIO_TN ? "Tienda online" : u.split("@")[0] || "—");
 const prenda = (m: Mov) => [m.modelo, m.color, m.talle && `T${m.talle}`].filter(Boolean).join(" · ");
 
 function aEvento(m: Mov, anulados: Set<string>, porId: Map<string, Mov>): Evento {
@@ -52,14 +52,14 @@ const porHora = (a: Evento, b: Evento) => (a.hora < b.hora ? -1 : a.hora > b.hor
 /** Notas + movimientos de esos días, ordenados por día y hora. */
 export async function eventosDeDias(fechas: string[]): Promise<{ eventos: Evento[]; error?: string; errorNotas?: string }> {
   const [m, n] = await Promise.all([movimientosDe(fechas), leerNotas(fechas)]);
-  // Las filas archivadas desde Movimientos ya están en m: del Maestro sólo van las que cargó otro (charlas, ChatGPT, a mano)
+  // Las filas archivadas desde Movimientos ya están en m: del Maestro sólo van las que cargó otro (charlas, asistente, a mano)
   const ya = new Set(m.eventos.map((e) => e.id));
   const eventos = [...n.notas.filter((x) => !ya.has(x.id)), ...m.eventos].sort((a, b) => (a.f < b.f ? -1 : a.f > b.f ? 1 : porHora(a, b)));
   return { eventos, error: m.error, errorNotas: n.error };
 }
 export const eventosDelDia = (f: string) => eventosDeDias([f]);
 
-// ---------- notas de las charlas con ChatGPT ----------
+// ---------- notas de las charlas con el asistente IA ----------
 
 export type NuevaNota = { hora: string; que: string; detalle?: string };
 const limpio = (s: unknown, n: number) => String(s ?? "").replace(/[\r\t]+/g, " ").replace(/\n+/g, " · ").trim().slice(0, n);
@@ -70,7 +70,7 @@ async function leerNotas(fechas: string[]): Promise<{ notas: Evento[]; error?: s
   const dias = new Set(fechas);
   try {
     const rows = await range(SHEETS.maestro, `'${HOJA}'!A2:H`);
-    // Todo lo que esté en «Línea del tiempo» (charlas, lo que agregue ChatGPT o alguien a mano); la hora puede faltar
+    // Todo lo que esté en «Línea del tiempo» (charlas, lo que agregue el asistente IA o alguien a mano); la hora puede faltar
     const notas = rows.map((r, i) => ({ r, i })).filter(({ r }) => str(r[2]) && dias.has(toISO(r[0]))).map(({ r, i }) => ({
       id: str(r[7]) || `fila-${i + 2}`, f: toISO(r[0]), hora: horaOk(str(r[1])), tipo: "nota" as const, que: str(r[2]), detalle: str(r[3]), local: str(r[4]),
       monto: num(r[5]), quien: str(r[6]), anulado: false,
@@ -87,7 +87,7 @@ async function leerNotas(fechas: string[]): Promise<{ notas: Evento[]; error?: s
 export async function guardarNotas(_f: string, _quien: string, _nuevas: NuevaNota[]): Promise<number> { throw new Error(CONSULTA); }
 
 /**
- * Resumen pegado de ChatGPT → notas. Cada línea que empieza con una hora («9:30», «09.30», «15 h», «- 18:00 —») abre una nota;
+ * Resumen pegado del asistente IA → notas. Cada línea que empieza con una hora («9:30», «09.30», «15 h», «- 18:00 —») abre una nota;
  * las líneas sin hora se suman como detalle de la anterior.
  */
 export function parsearResumen(texto: string): NuevaNota[] {

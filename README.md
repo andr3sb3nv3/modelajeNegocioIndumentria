@@ -1,6 +1,6 @@
 # Modelaje de negocio · Indumentaria
 
-Aplicación pública para mostrar dashboards de una marca ficticia. Reproduce el diseño y las herramientas de consulta de la aplicación de referencia, con identidad y datos propios. No utiliza datos, cuentas, credenciales ni integraciones de BENVEAPP.
+Aplicación pública para mostrar dashboards de una marca ficticia, con identidad, datos y planillas propios. Presenta herramientas de consulta y planificación de un negocio de indumentaria mediante ejemplos inventados.
 
 ## Publicar en Vercel
 
@@ -52,4 +52,4 @@ npm test
 npm run build
 ```
 
-Los importes se muestran en ARS. Las descargas de los modelos mayoristas contienen únicamente supuestos ficticios y fórmulas propias de la demo.
+Las localidades de la demostración son Rosario y Mendoza; los nombres de personas, productos y proveedores son ficticios. Los importes se muestran en ARS. Las descargas de los modelos mayoristas contienen únicamente supuestos ficticios y fórmulas propias de la demo.

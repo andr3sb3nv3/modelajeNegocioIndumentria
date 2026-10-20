@@ -34,7 +34,7 @@ const NO_MULTI: [string, string, string][] = [
   ["clienta", "La clienta es de la tienda", "No sabemos quién compró ni la podemos volver a contactar."],
 ];
 const REGLAS: [string, string, string][] = [
-  ["precio", "Un solo precio", "El mismo en el showroom, en Tiendanube y en las revendedoras. Nadie rebaja antes de la fecha."],
+  ["precio", "Un solo precio", "El mismo en el showroom, en la tienda online y en las revendedoras. Nadie rebaja antes de la fecha."],
   ["envio", "Envío gratis", "A todo el país, y el cambio de talle sin costo."],
   ["caja", "La caja es parte del vestido", "Packaging de regalo y una nota: la entrega es la primera impresión."],
   ["charla", "Atención personal", "WhatsApp o videollamada para elegir talle y modelo antes de comprar."],
@@ -47,7 +47,7 @@ const CAMINOS = ["Probar", "Crecer", "Escalar"];
 const ESTADO: Record<string, string> = { Ejemplo: "ej" };
 /** Supuestos de la planilla en palabras simples */
 const LLANO: Record<string, string> = {
-  fijoPct: "Lo que se llevan los fijos de la marca demo de cada venta", comOn: "Comisión de Tiendanube y pasarela", envOn: "Envío gratis a otra ciudad, por venta",
+  fijoPct: "Lo que se llevan los fijos de la marca demo de cada venta", comOn: "Comisión de la tienda online y pasarela", envOn: "Envío gratis a otra ciudad, por venta",
   camb: "Ventas que se cambian de talle", devol: "Vestidos que vuelven con falla", cac: "Pauta para conseguir cada venta nueva",
   mesesStock: "Stock listo para no quedarse sin talles", descRev: "Descuento a revendedoras", pautaMay: "Pauta y atención para revendedoras, por mes",
   fotos: "Fotos, videos y catálogo, por temporada", cap: "Capacidad mensual supuesta, en prendas",
@@ -65,7 +65,7 @@ function Iconos({ n, k }: { n: number; k: string }) {
 }
 
 /**
- * Canal mayorista: primera opción vender a todo el país desde Tiendanube (?m= vacío), segunda opción multimarcas (?m=multi).
+ * Canal mayorista: primera opción vender a todo el país desde la tienda online (?m= vacío), segunda opción multimarcas (?m=multi).
  * Cada una se ve de un vistazo (?v= vacío) o como tesis para leer de corrido (?v=tesis).
  */
 export function Mayorista({ vista, opcion }: { vista: "ver" | "tesis"; opcion: "online" | "multi" }) {
@@ -96,13 +96,13 @@ function Interior() {
   return (
     <section>
       <div className="sec-h"><h2>Venta masiva al interior</h2></div>
-      <p className="sec-sub">El camino principal: clientas de otras ciudades que compran por Tiendanube, con envío gratis y cambio sin costo.</p>
+      <p className="sec-sub">El camino principal: clientas de otras ciudades que compran por la tienda online, con envío gratis y cambio sin costo.</p>
 
       <div className="gl my-emb">
         <span className="my-ey">La prueba de un mes</span>
         <ol>
           <li><b>{fmt.M(e.prueba)}</b><span>de pauta en Instagram</span></li>
-          <li><b>{fmt.n(Math.round(e.visitas))}</b><span>visitas a Tiendanube ({fmt.M(P.cpc)} cada una)</span></li>
+          <li><b>{fmt.n(Math.round(e.visitas))}</b><span>visitas a la tienda online ({fmt.M(P.cpc)} cada una)</span></li>
           <li><b>{fmt.n(Math.round(e.ventas))}</b><span>ventas nuevas (compra el {fmt.p(P.conv, 1)})</span></li>
           <li className="fin"><b>{fmt.M(e.cpv)}</b><span>cuesta cada venta</span></li>
         </ol>
@@ -180,8 +180,8 @@ function Vistazo() {
     <>
       <section className="gl my-hero">
         <span className="my-ey">La idea</span>
-        <h2 className="my-h2">Vender a todo el país desde Tiendanube, sin multimarcas</h2>
-        <Reparto t="Hoy, en el showroom o en Tiendanube" partes={[["fab", "Fábrica", a.fab], ["otr", "Cobro y envío", a.pvp - a.fab - a.dejaMin], ["gana", "Marca demo", a.dejaMin]]} total={a.pvp} />
+        <h2 className="my-h2">Vender a todo el país desde la tienda online, sin multimarcas</h2>
+        <Reparto t="Hoy, en el showroom o en la tienda online" partes={[["fab", "Fábrica", a.fab], ["otr", "Cobro y envío", a.pvp - a.fab - a.dejaMin], ["gana", "Marca demo", a.dejaMin]]} total={a.pvp} />
         <Reparto t="Directo a una clienta de otra ciudad" partes={[["fab", "Fábrica", a.fab], ["otr", "Envío, cambios y cobro", a.onCom + a.onEnv + a.onFal], ["tie", "Pauta", a.onCac], ["gana", "Marca demo", a.dejaOn]]} total={a.pvp} />
         <Reparto t="Con una revendedora" partes={[["tie", "La revendedora", a.pvp - a.rev], ["fab", "Fábrica", a.fab], ["otr", "Cobro", a.revCob], ["gana", "Marca demo", a.dejaRev]]} total={a.pvp} />
         <p className="my-lead">De un vestido de {fmt.M(a.pvp)}, a la marca demo le quedan <b>{fmt.M(a.dejaOn)}</b> vendiéndolo directo a otra ciudad (pagando envío gratis y pauta) o <b>{fmt.M(a.dejaRev)}</b> con una revendedora. Una multimarca (segunda opción) dejaría {fmt.M(a.dejaMay)}.</p>
@@ -212,7 +212,7 @@ function Vistazo() {
           <button type="button" className={camino === "rev" ? "on" : ""} onClick={() => cambiarCamino("rev")}>Revendedoras online</button>
         </div>
         <p className="note">{camino === "dir"
-          ? "Clientas de cualquier ciudad compran por Tiendanube, con envío gratis y cambio sin costo. Cada venta nueva cuesta pauta."
+          ? "Clientas de cualquier ciudad compran por la tienda online, con envío gratis y cambio sin costo. Cada venta nueva cuesta pauta."
           : `Estilistas y showrooms en casa, por invitación, compran con ${fmt.p(P.descRev)} de descuento, pagan al pedir y venden al mismo precio que la marca demo.`}</p>
         <div className="my-caminos">
           {filas.map((e, i) => {

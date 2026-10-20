@@ -112,11 +112,11 @@ export function abiertos(movs: Mov[]) {
 export type Item = { local: string; modelo: string; color: string; talle: string; conteo: number; q: number; temporada: string };
 export type Online = { lineas: (LineaTN & { modelo: string; color: string; talle: string; ok: boolean })[]; activo: boolean; error?: string; local: string };
 
-export const sinHonduras = (l: string) => !/hondu/i.test(l);
+export const sinMendoza = (l: string) => !/mendoza/i.test(l);
 
 /** Local ficticio del canal online: Online/Web/Depósito; si no hay, el showroom. */
 export function localOnline(locales: string[]) {
-  return locales.find((l) => /online|web|tienda/i.test(l)) || locales.find((l) => /dep[oó]sito/i.test(l)) || locales.find((l) => /isidro/i.test(l)) || locales[0] || "Online";
+  return locales.find((l) => /online|web|tienda/i.test(l)) || locales.find((l) => /dep[oó]sito/i.test(l)) || locales.find((l) => /rosario/i.test(l)) || locales[0] || "Online";
 }
 
 /**
@@ -132,8 +132,8 @@ export type SinTalle = { local: string; modelo: string; /** claveModelo */ k: st
  */
 export async function stockEnVivo(stock: StockRow[], ventas?: Venta[]) {
   const ult = new Map<string, string>();
-  for (const s of stock) if (sinHonduras(s.local) && s.fecha > (ult.get(s.local) || "")) ult.set(s.local, s.fecha);
-  const locales = [...ult.keys()].sort((a, b) => (/isidro/i.test(a) ? -1 : /isidro/i.test(b) ? 1 : a.localeCompare(b)));
+  for (const s of stock) if (sinMendoza(s.local) && s.fecha > (ult.get(s.local) || "")) ult.set(s.local, s.fecha);
+  const locales = [...ult.keys()].sort((a, b) => (/rosario/i.test(a) ? -1 : /rosario/i.test(b) ? 1 : a.localeCompare(b)));
   const lOnline = localOnline(locales);
   if (!ult.has(lOnline)) locales.push(lOnline);
 
@@ -191,7 +191,7 @@ export function reconocer(items: { modelo: string; color: string }[]) {
 }
 
 function descontarHoja(ventas: Venta[], items: Item[], locales: string[], ult: Map<string, string>, v: Mov[], online: Online): SinTalle[] {
-  // Canal de la hoja Ventas → local del conteo: online descuenta del local online; Honduras y otros canales sin conteo vigente, no
+  // Canal de la hoja Ventas → local del conteo: online descuenta del local online; Mendoza y otros canales sin conteo vigente, no
   const localDe = (canal: string) => {
     const g = grupoCanal(canal);
     if (g === "Online") return online.local;

@@ -20,7 +20,7 @@ function hora(iso: string) { const ba = enBA(iso); return ba ? `${dosD(ba.getUTC
 const fechaDia = (dia: string) => new Date(dia + "T12:00:00Z");
 function rotuloDia(dia: string) { const d = fechaDia(dia); return `${DIAS_LARGOS[d.getUTCDay()]} ${d.getUTCDate()} ${MESES[d.getUTCMonth()]}`; }
 const href = (x: ItemIA, q?: string) => `/ia?d=${diaDeISO(x.fecha)}&v=${encodeURIComponent(x.id)}${q ? `&q=${encodeURIComponent(q)}` : ""}`;
-const esIA = (q: string) => /^(claude|codex|marca demo|chatgpt)$/i.test(q.trim());
+const esIA = (q: string) => /^(asistente(?: ia| demo)?|marca demo)$/i.test(q.trim());
 
 /** Para buscar sin importar mayúsculas ni tildes */
 const plano = (t: string) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -103,7 +103,7 @@ function ElDia({ dia, x, antes, error }: { dia: string; x?: Numeros; antes?: Num
 }
 
 /**
- * Interacción con Claude y Codex: lo que se charla con ellos queda como archivo en el repo (data/ia/vistas,
+ * Interacción con Asistente IA: lo que se charla con ellos queda como archivo en el repo (data/ia/vistas,
  * public/ia/imagenes) y acá se ve día por día, junto con lo que pasó en el negocio ese día. El calendario va a
  * cualquier fecha (?d=AAAA-MM-DD); ?v= elige una vista y ?q= busca en todas las charlas.
  */
@@ -139,7 +139,7 @@ export default async function Interaccion({ searchParams }: { searchParams: Prom
   const antes = i > 0 ? lista[i - 1] : undefined, despues = i >= 0 ? lista[i + 1] : undefined;
 
   return (
-    <Page ancho leido={new Date().toISOString()} eyebrow="Marca demo" title={<>Interacción con <em>Claude y Codex</em></>} lede="Conversaciones ficticias de ejemplo, día por día, al lado de los datos de demostración del negocio.">
+    <Page ancho leido={new Date().toISOString()} eyebrow="Marca demo" title={<>Interacción con <em>Asistente IA</em></>} lede="Conversaciones ficticias de ejemplo, día por día, al lado de los datos de demostración del negocio.">
       <div className="ia">
         <section className="ia-top" aria-label="Días">
           <IADias dias={dias} dia={dia} hoy={hoy} antes={sumarDias(dia, -14)} despues={sumarDias(dia, 14)} />

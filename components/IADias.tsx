@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 export type DiaIA = { dia: string; dow: string; num: number; mes: string; temas: string[]; on: boolean; hoy: boolean };
 
 /**
- * Calendario de la interacción con Claude y Codex: una tira de días que se puede mover para cualquier lado
+ * Calendario de la interacción con Asistente IA: una tira de días que se puede mover para cualquier lado
  * (flechas de a dos semanas, «Hoy» y un selector de fecha). Al pasar el mouse por un día con charlas se ven sus
  * temas; el globo va en posición fija para que el scroll horizontal no lo corte.
  */

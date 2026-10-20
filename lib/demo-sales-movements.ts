@@ -32,7 +32,7 @@ export function demoSalesMovements(sales: readonly SaleRow[], asOf = DEMO_AS_OF)
     const id = `demo-venta-${digest.slice(0, 16)}-${repeated}`;
     const variant = Number.parseInt(digest.slice(0, 4), 16);
     // Online and the other channels dispatch from the fictitious depot.
-    const local = channel === "San Isidro" || channel === "Honduras" ? channel : "Depósito";
+    const local = channel === "Rosario" || channel === "Mendoza" ? channel : "Depósito";
     // Keep the sales channel separate from the physical dispatch location.
     const user = channel === "Online" ? DEMO_ONLINE_USER : "equipo.demo@example.com";
     const hour = String(10 + variant % 9).padStart(2, "0");

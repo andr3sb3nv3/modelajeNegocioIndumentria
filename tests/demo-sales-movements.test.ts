@@ -32,7 +32,7 @@ test("detailed demo history mirrors master sales without changing closing stock"
 
 test("identical invented sales remain separate history operations", () => {
   const date = Date.parse(`${DEMO_AS_OF}T00:00:00Z`) / 86400000 + 25569;
-  const row = [date, DEMO_AS_OF.slice(0, 7), "San Isidro", "Clienta Demo 001", "Aurora", 1, 187000, "Transferencia", "Registro San Isidro", "Ficticio"];
+  const row = [date, DEMO_AS_OF.slice(0, 7), "Rosario", "Clienta Demo 001", "Aurora", 1, 187000, "Transferencia", "Registro Rosario", "Ficticio"];
   const movements = demoSalesMovements([row, row]);
   assert.notEqual(movements[0][0], movements[1][0]);
   assert.equal(movements[0][8], -1);

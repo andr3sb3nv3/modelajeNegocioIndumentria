@@ -3,8 +3,8 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
 /**
- * Reporte de la mañana: lo escribe una rutina de Claude cada mañana (no Vercel) leyendo las carpetas de asesores
- * del Drive y las planillas, y lo deja en data/reportes/AAAA-MM-DD.json en main. La app sólo lo muestra.
+ * Reporte ficticio de demostración: se prepara cuando se solicita y se guarda en
+ * data/reportes/AAAA-MM-DD.json. La aplicación sólo lo muestra; no ejecuta rutinas automáticas.
  * Formato: ver data/reportes/README.md.
  */
 

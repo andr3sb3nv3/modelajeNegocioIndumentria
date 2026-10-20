@@ -3,14 +3,14 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
 /**
- * Interacción con Claude y Codex (/ia): lo que el equipo de ejemplo le pide a Claude en el proyecto (o a Codex) queda como archivo en el repo y
+ * Interacción con el asistente IA (/ia): los pedidos ficticios del equipo de ejemplo se guardan como archivos en el repositorio y
  * la app sólo lo muestra. Sin claves de IA en Vercel. Convención en data/ia/LEEME.md.
  *  - Vistas: data/ia/vistas/AAAA-MM-DD-HHMM-algo.json  → { fecha, pedido, titulo, resumen, puntos?, html, fuentes?, origen?, quien?, charla? }
  *  - Imágenes: public/ia/imagenes/AAAA-MM-DD-HHMM-algo.(png|jpg|jpeg|webp), con un .json al lado opcional
  *    { titulo?, pedido?, fecha? }
  */
 export type Fuente = { titulo: string; url?: string };
-/** Un mensaje de una charla guardada: quién habló (Equipo demo, Claude, Codex) y qué dijo */
+/** Un mensaje de una charla guardada: quién habló (Equipo demo, Asistente IA) y qué dijo */
 export type Mensaje = { quien: string; texto: string };
 /** Una frase corta de lo que muestra la vista; «ancla» (selector CSS dentro de la vista) es la parte a la que lleva */
 export type Punto = { texto: string; ancla?: string };
